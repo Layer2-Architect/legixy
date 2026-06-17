@@ -1,0 +1,17 @@
+[package]
+name = "legixy-ctx"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-db.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+rusqlite.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true
+tempfile.workspace = true

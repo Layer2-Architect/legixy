@@ -1,0 +1,39 @@
+[package]
+name = "legixy-embed"
+version.workspace = true
+edition.workspace = true
+
+[features]
+# 既定では ONNX backend を無効化（pure ロジック GREEN を offline で担保）。
+# 実 ONNX 推論を有効化する場合: `cargo test -p legixy-embed --features onnx`。
+default = []
+onnx = ["dep:ort", "dep:tokenizers", "dep:ndarray"]
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-db.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+rusqlite.workspace = true
+sha2.workspace = true
+hex.workspace = true
+unicode-normalization.workspace = true
+ort = { version = "2.0.0-rc.12", default-features = false, features = ["std", "ndarray", "download-binaries", "tls-native"], optional = true }
+tokenizers = { version = "0.22", default-features = false, features = ["fancy-regex"], optional = true }
+ndarray = { version = "0.17", optional = true }
+
+[dev-dependencies]
+proptest.workspace = true
+tempfile.workspace = true
+criterion.workspace = true
+# REL.07 並行制御テストで競合ロックを保持する第二コネクション用。
+rusqlite.workspace = true
+
+# NFR-LGX-001.PERF.08 embedding スループットベンチ（実 ONNX 必須）。
+# 実行: cargo bench -p legixy-embed --features onnx --bench perf08_embed_throughput
+[[bench]]
+name = "perf08_embed_throughput"
+harness = false
+required-features = ["onnx"]

@@ -1,0 +1,200 @@
+# .trace-engine.toml — legixy プロジェクト（DevProc_V4.1 採用）
+#
+# 開発ツールとして実バイナリ `traceability-engine`（v0.4.0-alpha4）を使用する。
+# そのため設定ファイル名は実バイナリが読む `.trace-engine.toml` とする。
+# （legixy-the-tool が将来既定とする `.legixy.toml` は別レイヤ。LGX-COMPAT-001 §6 / SPEC-LGX-008.REQ.13 参照）
+
+[project]
+name = "legixy"
+
+[graph]
+file = "docs/traceability/graph.toml"
+
+[matrix]
+format = "markdown"
+file = "docs/traceability/matrix.md"
+section = "Traceability Matrix"
+
+[id]
+# 3 パート固定（traceability-engine v3 仕様）
+pattern = "{type}-{area}-{seq}"
+seq_digits = 3
+# multi-area（DevProc_V4.1 §12 配送層）: 機能軸=LGX / 配送軸=CLI・MCP。
+# area 正規表現は [A-Z]+ で既存 LGX ID を包含（regression なし、ch.12 §9 / G-C）。
+areas = ["LGX", "CLI", "MCP"]
+
+[[id.chains]]
+# 機能軸（ICONIX 二段化チェーン本体）。現行を不変移植。
+area = "LGX"
+order = ["UC", "RBA", "SEQA", "RBD", "SEQD", "DD", "TS", "TC", "SRC"]
+independent = ["SPEC", "TP", "GAP", "ADR", "AT", "NFR", "VAL", "QSET", "SPP", "FCR", "RPC"]
+
+[[id.chains]]
+# 配送軸: CLI 契約サーフェス（CTR を根 → 契約 → binary 全走査、DevProc_V4.1 §12）。
+# PAI=完成品適合検査（作者独立・黒箱・実環境。DevProc_V4.1 §13、independent）。
+area = "CLI"
+order = ["CTR", "DLV", "TS", "TC", "SRC"]
+independent = ["ADR", "PAI"]
+
+[[id.chains]]
+# 配送軸: MCP 契約サーフェス（ts-mcp）。
+area = "MCP"
+order = ["CTR", "DLV", "TS", "TC", "SRC"]
+independent = ["ADR", "PAI"]
+
+[id.document_id]
+pattern = "Document ID:"
+
+# ============================================
+# chain 内 typecode
+# ============================================
+
+[id.types.SPEC]
+dir = "docs/specs/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.UC]
+dir = "docs/usecases/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.RBA]
+dir = "docs/robustness-abstract/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.SEQA]
+dir = "docs/sequence-abstract/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.RBD]
+dir = "docs/robustness-detail/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.SEQD]
+dir = "docs/sequence-detail/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.DD]
+dir = "docs/detailed-design/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.TS]
+dir = "docs/test-specs/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.TC]
+# legixy は Rust 実装（+ TypeScript MCP）。chain 本体は Rust。
+dir = "tests/"
+ext = ".rs"
+file_pattern = "contains"
+
+[id.types.SRC]
+dir = "src/"
+ext = ".rs"
+file_pattern = "contains"
+
+# ============================================
+# 配送軸 typecode（DevProc_V4.1 §12。CTR=境界契約・チェーン根 / DLV=配送設計）
+# ============================================
+
+[id.types.CTR]
+dir = "docs/contracts/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.DLV]
+dir = "docs/delivery-design/"
+ext = ".md"
+file_pattern = "prefix"
+
+# ============================================
+# 独立 typecode
+# ============================================
+
+[id.types.TP]
+dir = "docs/test-perspectives/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.GAP]
+dir = "docs/gap-analysis/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.ADR]
+dir = "docs/adr/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.AT]
+dir = "docs/acceptance-tests/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.NFR]
+dir = "docs/nfr/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.VAL]
+dir = "docs/validation/"
+ext = ".md"
+file_pattern = "prefix"
+
+# PAI=完成品適合検査（DevProc_V4.1 §13。作者と独立な黒箱・実環境検査の記録。independent）。
+[id.types.PAI]
+dir = "docs/product-acceptance/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.RPC]
+dir = "docs/responsibility-preservation/"
+ext = ".md"
+file_pattern = "prefix"
+
+# ============================================
+# 前段ループ用 typecode（QSET / SPP / FCR）
+# ============================================
+
+[id.types.QSET]
+dir = "docs/frontend-pass/questionnaires/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.SPP]
+dir = "docs/spec-patches/"
+ext = ".md"
+file_pattern = "prefix"
+
+[id.types.FCR]
+dir = "docs/frontend-pass/check-results/"
+ext = ".md"
+file_pattern = "prefix"
+
+# ============================================
+# semantic（第 2 層）— ONNX モデル必須。models/ 配置後に enabled = true
+# モデルは日英対応（多言語）の paraphrase-multilingual-MiniLM-L12-v2 を採用。
+#   - 384 次元・mean pooling・prefix 不要 → all-MiniLM-L6-v2 のドロップイン置換（エンジン改修不要）
+#   - 配置先: models/paraphrase-multilingual-MiniLM-L12-v2/{model.onnx, tokenizer.json}
+# ============================================
+
+[semantic]
+enabled = true
+model = "paraphrase-multilingual-MiniLM-L12-v2"
+similarity_threshold = 0.4
+drift_threshold = 0.3
+link_candidate_threshold = 0.7
+
+[contextual_retrieval]
+enabled = false
+
+[freshness]
+enabled = true
+method = "mtime"

@@ -1,0 +1,5 @@
+engine.db
+engine.db-wal
+engine.db-shm
+*.bak
+*.bak.*

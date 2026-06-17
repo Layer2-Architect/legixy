@@ -1,0 +1,8 @@
+# build-deploy.sh が生成する成果物（再現可能なためコミットしない）。
+bin/
+ts-mcp/dist/
+ts-mcp/node_modules/
+ts-mcp/package.json
+ts-mcp/package-lock.json
+config/
+models/

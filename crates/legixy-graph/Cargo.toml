@@ -1,0 +1,20 @@
+[package]
+name = "legixy-graph"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+legixy-core.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+indexmap.workspace = true
+# UC-LGX-003 サブノード自動抽出（DD-LGX-003 §4）。GraphParseError::TomlParse の型参照に toml が必須。
+# sha2 / hex / unicode-normalization は SRC[GREEN] の ID 生成・正規化で使用（DD §4、stub 段階でも宣言）。
+toml = "0.8"
+sha2 = "0.10"
+hex = "0.4"
+unicode-normalization = "0.1"
+
+[dev-dependencies]
+# TS-LGX-003 ケース 2/13/16/26（property-based）。
+proptest.workspace = true

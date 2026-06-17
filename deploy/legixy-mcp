@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# legixy MCP サーバ起動ラッパ。deploy 同梱の legixy バイナリを LGX_BIN で指して ts-mcp を起動する。
+# 使い方（Claude Code 等の MCP クライアントから）:
+#   command: <このスクリプトのパス>
+#   args:    ["--project-root", "<プロジェクトルート>"]
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export LGX_BIN="${LGX_BIN:-$HERE/bin/legixy}"
+exec node "$HERE/ts-mcp/dist/index.js" "$@"

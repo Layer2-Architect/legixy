@@ -1,0 +1,15 @@
+[package]
+name = "legixy-check"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-db.workspace = true
+# 意味層 SemanticChecker（SPEC-LGX-004.REQ.02）が bulk similarity API を呼ぶ（BUG-005）。
+# legixy-embed は legixy-check に依存しない＝循環なし。onnx feature は引き込まない（事前生成ベクトル読取のみ）。
+legixy-embed.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

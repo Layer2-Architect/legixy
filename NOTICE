@@ -1,0 +1,25 @@
+legixy
+Copyright 2026 The legixy Authors
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+------------------------------------------------------------------------
+Components obtained separately (NOT distributed with this source tree)
+------------------------------------------------------------------------
+
+* ONNX Runtime
+  The semantic layer links the ONNX Runtime native library. When building
+  the `onnx` feature, it is downloaded at build time by the `ort` crate.
+  ONNX Runtime is distributed under the MIT License.
+  https://github.com/microsoft/onnxruntime
+
+* Embedding model: paraphrase-multilingual-MiniLM-L12-v2
+  The semantic layer requires a local embedding model. It is downloaded at
+  install time from the Hugging Face Hub (it is NOT part of this repository
+  or the release archives). The model is published by sentence-transformers
+  under the Apache License, Version 2.0.
+  https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+Third-party Rust and npm dependencies retain their own licenses; see
+Cargo.lock / ts-mcp/package-lock.json and the respective upstream projects.

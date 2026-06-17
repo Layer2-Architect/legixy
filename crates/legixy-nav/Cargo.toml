@@ -1,0 +1,17 @@
+[package]
+name = "legixy-nav"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-db.workspace = true
+indexmap.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+rusqlite = { version = "0.33", features = ["bundled"] }
+
+[dev-dependencies]
+proptest.workspace = true

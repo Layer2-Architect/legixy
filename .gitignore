@@ -1,0 +1,7 @@
+.devproc/
+models/
+target/
+node_modules/
+dist/
+*.tar.gz
+*.zip

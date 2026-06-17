@@ -1,0 +1,82 @@
+{
+  "_comment": "legixy / DevProc_V4.1 ローカル運用向け Claude Code settings。詳細は docs/DevProc_V4/08-gates.md §17。",
+
+  "hooks": {
+    "_comment_PreToolUse": "品質基準ファイルへの書き込みを deterministic に block する（review-guidelines/severity.md §3）。",
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/guard-quality-baseline.sh \"$CLAUDE_FILE_PATH\""
+          }
+        ]
+      }
+    ],
+
+    "_comment_PostToolUse": "成果物書き込み後に軽量チェック（Document ID 漏れ等の早期検出）。",
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/trace-check-light.sh \"$CLAUDE_FILE_PATH\" || true"
+          }
+        ]
+      }
+    ],
+
+    "_comment_SubagentStop": "Author subagent 完了で Reviewer 起動を促し、Reviewer 完了で VERDICT を抽出する。",
+    "SubagentStop": [
+      {
+        "matcher": "author",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '─── Author 完了。/advance <stage> で Reviewer subagent を起動してください ───'"
+          }
+        ]
+      },
+      {
+        "matcher": "reviewer",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/extract-verdict.sh \"$CLAUDE_TRANSCRIPT_PATH\""
+          }
+        ]
+      }
+    ],
+
+    "_comment_SessionStart": "セッション起動時にハードルール一覧を注入し直す。",
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "grep -A 50 '## ハードルール' docs/DevProc_V4/README.md | head -60 || true"
+          }
+        ]
+      }
+    ],
+
+    "_comment_Stop": "停止時に未消化 VERDICT を警告し、修正イベントの 3 サイクル超過を確認する。",
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/check-pending-verdict.sh || true"
+          },
+          {
+            "type": "command",
+            "command": "bash scripts/count-fix-cycle.sh > /dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

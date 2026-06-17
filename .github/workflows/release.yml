@@ -1,0 +1,153 @@
+name: release
+
+# Builds onnx-enabled legixy binaries for Linux and Windows and attaches them
+# to the GitHub Release for the pushed tag.
+#
+# NOTE (validate on first run): the highest-risk steps are (a) the `ort` crate
+# downloading the ONNX Runtime native library and (b) bundling that library next
+# to the binary so the archive is self-contained. If a build or a smoke run
+# fails, inspect the "locate ONNX Runtime" step output and adjust the search path.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build (e.g. v0.4.0-alpha4)"
+        required: true
+
+permissions:
+  contents: write
+
+env:
+  MODEL_NAME: paraphrase-multilingual-MiniLM-L12-v2
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            name: x86_64-linux
+            archive: tar.gz
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            name: x86_64-windows
+            archive: zip
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve tag
+        id: tag
+        shell: bash
+        run: echo "value=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cargo cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Linux build deps
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y pkg-config libssl-dev
+
+      - name: Build legixy CLI (onnx feature)
+        shell: bash
+        run: cargo build --release --locked -p legixy-cli --features onnx --target ${{ matrix.target }}
+
+      - name: Build ts-mcp (MCP server)
+        shell: bash
+        working-directory: ts-mcp
+        run: |
+          npm ci
+          npm run build
+
+      - name: Assemble release tree
+        id: assemble
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tag.outputs.value }}"
+          STAGE="dist/legixy-${TAG}-${{ matrix.name }}"
+          BINEXT=""; [ "${{ runner.os }}" = "Windows" ] && BINEXT=".exe"
+          mkdir -p "$STAGE/bin" "$STAGE/ts-mcp" "$STAGE/config" "$STAGE/models"
+
+          # CLI binary
+          cp "target/${{ matrix.target }}/release/legixy${BINEXT}" "$STAGE/bin/"
+
+          # Bundle the ONNX Runtime native library that `ort` produced.
+          echo "locate ONNX Runtime:"
+          found=""
+          while IFS= read -r lib; do
+            echo "  bundling $lib"; cp "$lib" "$STAGE/bin/"; found=1
+          done < <(find "target/${{ matrix.target }}/release" -maxdepth 3 \
+                     \( -name 'libonnxruntime.so*' -o -name 'onnxruntime.dll' -o -name 'libonnxruntime.dylib' \) 2>/dev/null)
+          [ -n "$found" ] || echo "  WARNING: no onnxruntime library found to bundle (binary may need it at runtime)"
+
+          # ts-mcp: built dist + production deps only
+          cp -r ts-mcp/dist "$STAGE/ts-mcp/dist"
+          cp ts-mcp/package.json ts-mcp/package-lock.json "$STAGE/ts-mcp/"
+          ( cd "$STAGE/ts-mcp" && npm ci --omit=dev --ignore-scripts )
+
+          # sample config + docs
+          [ -f .trace-engine.toml ] && cp .trace-engine.toml "$STAGE/config/legixy.toml.sample" || true
+          cp README.md LICENSE NOTICE "$STAGE/" 2>/dev/null || true
+          cp -r docs/manual "$STAGE/manual" 2>/dev/null || true
+          printf 'The embedding model is downloaded by the installer (install.sh / install.ps1)\ninto this directory: models/%s/{model.onnx,tokenizer.json}.\n' "$MODEL_NAME" > "$STAGE/models/README.txt"
+
+          # launchers (templates live under deploy/release/)
+          if [ "${{ runner.os }}" = "Windows" ]; then
+            cp deploy/release/legixy-mcp.cmd "$STAGE/bin/legixy-mcp.cmd"
+          else
+            cp deploy/release/legixy "$STAGE/legixy"
+            cp deploy/release/legixy-mcp "$STAGE/legixy-mcp"
+            chmod +x "$STAGE/legixy" "$STAGE/legixy-mcp" "$STAGE/bin/legixy"
+          fi
+          echo "stage=$STAGE" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke test (--version)
+        shell: bash
+        continue-on-error: true
+        run: |
+          if [ "${{ runner.os }}" = "Windows" ]; then
+            "${{ steps.assemble.outputs.stage }}/bin/legixy.exe" --version
+          else
+            "${{ steps.assemble.outputs.stage }}/legixy" --version
+          fi
+
+      - name: Package archive
+        id: pkg
+        shell: bash
+        run: |
+          set -euo pipefail
+          STAGE="${{ steps.assemble.outputs.stage }}"
+          BASE="$(basename "$STAGE")"
+          cd dist
+          if [ "${{ matrix.archive }}" = "zip" ]; then
+            7z a "../${BASE}.zip" "$BASE" >/dev/null
+            echo "file=${BASE}.zip" >> "$GITHUB_OUTPUT"
+          else
+            tar -czf "../${BASE}.tar.gz" "$BASE"
+            echo "file=${BASE}.tar.gz" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: ${{ steps.pkg.outputs.file }}
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.pkg.outputs.file }}

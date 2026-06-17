@@ -1,0 +1,30 @@
+[package]
+name = "legixy-cli"
+version.workspace = true
+edition.workspace = true
+
+# 実行ファイル名 = `legixy`（LGX-COMPAT-001 §5。MCP は `<bin> --project-root <root> <subcommand...>` で起動）。
+[[bin]]
+name = "legixy"
+path = "src/main.rs"
+
+[features]
+# embed（実 ONNX 推論）を有効化する場合: `cargo build -p legixy-cli --features onnx`。
+# 既定オフ: report/calibrate/snapshot/drift は ONNX 不要で動作、embed は未対応エラーを返す。
+default = []
+onnx = ["legixy-embed/onnx"]
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-check.workspace = true
+legixy-nav.workspace = true
+legixy-feedback.workspace = true
+legixy-ctx.workspace = true
+legixy-embed.workspace = true
+legixy-mig.workspace = true
+clap.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

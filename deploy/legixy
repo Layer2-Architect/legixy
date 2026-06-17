@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# legixy CLI 起動ラッパ。deploy/bin/legixy を呼ぶ。
+# 同梱の日本語対応 ONNX モデルがあれば LGX_MODELS_DIR を自動設定（embed/意味層/refresh が利用）。
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MODEL="$HERE/models/paraphrase-multilingual-MiniLM-L12-v2"
+if [ -f "$MODEL/model.onnx" ] && [ -z "${LGX_MODELS_DIR:-}" ]; then
+  export LGX_MODELS_DIR="$MODEL"
+fi
+exec "$HERE/bin/legixy" "$@"

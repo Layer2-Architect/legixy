@@ -1,0 +1,20 @@
+[package]
+name = "legixy-mig"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+legixy-core.workspace = true
+legixy-graph.workspace = true
+legixy-db.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+toml.workspace = true
+rusqlite.workspace = true
+sha2.workspace = true
+hex.workspace = true
+tempfile.workspace = true
+
+[dev-dependencies]
+proptest.workspace = true

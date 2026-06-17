@@ -1,0 +1,2485 @@
+# docs/traceability/graph.toml — legixy 成果物レジストリ（DevProc_V4.1）
+#
+# chain 内（UC→RBA→SEQA→RBD→SEQD→DD→TS→TC→SRC）の親子は .trace-engine.toml の
+# [id.chain] order から自動推測される。chain 外の関連は本文 metadata で管理する。
+# 新規成果物を追加するたびに [[nodes]] を追記すること。
+
+# ===== SPEC（independent） =====
+
+[[nodes]]
+id = "SPEC-LGX-001"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-001_legixy-全体要求.md"
+
+[[nodes]]
+id = "SPEC-LGX-002"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-002_グラフ基盤.md"
+
+[[nodes]]
+id = "SPEC-LGX-003"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-003_コンテキスト解決.md"
+
+[[nodes]]
+id = "SPEC-LGX-004"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-004_検証.md"
+
+[[nodes]]
+id = "SPEC-LGX-005"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-005_グラフ走査.md"
+
+[[nodes]]
+id = "SPEC-LGX-006"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-006_embeddingとドリフト検出.md"
+
+[[nodes]]
+id = "SPEC-LGX-007"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-007_フィードバックループ.md"
+
+[[nodes]]
+id = "SPEC-LGX-008"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-008_マイグレーション.md"
+
+[[nodes]]
+id = "SPEC-LGX-009"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-009_MCPサーバ.md"
+
+[[nodes]]
+id = "SPEC-LGX-010"
+type = "SPEC"
+path = "docs/specs/SPEC-LGX-010_embedding運用と監査.md"
+
+# ===== QSET（independent, 前段ループ反復 1） =====
+
+[[nodes]]
+id = "QSET-LGX-001"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-001_全体境界整合.md"
+
+[[nodes]]
+id = "QSET-LGX-002"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-002_グラフ基盤.md"
+
+[[nodes]]
+id = "QSET-LGX-003"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-003_コンテキスト解決.md"
+
+[[nodes]]
+id = "QSET-LGX-004"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-004_検証.md"
+
+[[nodes]]
+id = "QSET-LGX-005"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-005_グラフ走査.md"
+
+[[nodes]]
+id = "QSET-LGX-006"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-006_embeddingとドリフト検出.md"
+
+[[nodes]]
+id = "QSET-LGX-007"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-007_フィードバックループ.md"
+
+[[nodes]]
+id = "QSET-LGX-008"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-008_マイグレーション.md"
+
+[[nodes]]
+id = "QSET-LGX-009"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-009_MCPサーバ.md"
+
+# ===== QSET（independent, SPEC-LGX-010 前段ループ反復 1 / SPEC-LGX-009 反復 2） =====
+
+[[nodes]]
+id = "QSET-LGX-010"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-010_embedding運用と監査.md"
+
+[[nodes]]
+id = "QSET-LGX-011"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-011_MCPサーバ-反復2.md"
+
+[[nodes]]
+id = "QSET-LGX-012"
+type = "QSET"
+path = "docs/frontend-pass/questionnaires/QSET-LGX-012_全体境界整合-反復2.md"
+
+# ===== SPP（independent, 前段ループ反復 1） =====
+
+[[nodes]]
+id = "SPP-LGX-001"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-001_全体境界整合.md"
+
+[[nodes]]
+id = "SPP-LGX-002"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-002_グラフ基盤.md"
+
+[[nodes]]
+id = "SPP-LGX-003"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-003_コンテキスト解決.md"
+
+[[nodes]]
+id = "SPP-LGX-004"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-004_検証.md"
+
+[[nodes]]
+id = "SPP-LGX-005"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-005_グラフ走査.md"
+
+[[nodes]]
+id = "SPP-LGX-006"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-006_embeddingとドリフト検出.md"
+
+[[nodes]]
+id = "SPP-LGX-007"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-007_フィードバックループ.md"
+
+[[nodes]]
+id = "SPP-LGX-008"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-008_マイグレーション.md"
+
+[[nodes]]
+id = "SPP-LGX-009"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-009_MCPサーバ.md"
+
+# ===== SPP（independent, SPEC-LGX-010 前段ループ反復 1 / SPEC-LGX-009 反復 2） =====
+
+[[nodes]]
+id = "SPP-LGX-010"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-010_embedding運用と監査.md"
+
+[[nodes]]
+id = "SPP-LGX-011"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-011_MCPサーバ-反復2.md"
+
+[[nodes]]
+id = "SPP-LGX-012"
+type = "SPP"
+path = "docs/spec-patches/SPP-LGX-012_全体境界整合-反復2.md"
+
+# ===== FCR（independent, 前段ループ反復 1） =====
+
+[[nodes]]
+id = "FCR-LGX-001"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-001_全体境界整合.md"
+
+[[nodes]]
+id = "FCR-LGX-002"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-002_グラフ基盤.md"
+
+[[nodes]]
+id = "FCR-LGX-003"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-003_コンテキスト解決.md"
+
+[[nodes]]
+id = "FCR-LGX-004"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-004_検証.md"
+
+[[nodes]]
+id = "FCR-LGX-005"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-005_グラフ走査.md"
+
+[[nodes]]
+id = "FCR-LGX-006"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-006_embeddingとドリフト検出.md"
+
+[[nodes]]
+id = "FCR-LGX-007"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-007_フィードバックループ.md"
+
+[[nodes]]
+id = "FCR-LGX-008"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-008_マイグレーション.md"
+
+[[nodes]]
+id = "FCR-LGX-009"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-009_MCPサーバ.md"
+
+# ===== FCR（independent, SPEC-LGX-010 前段ループ反復 1 / SPEC-LGX-009 反復 2） =====
+
+[[nodes]]
+id = "FCR-LGX-010"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-010_embedding運用と監査.md"
+
+[[nodes]]
+id = "FCR-LGX-011"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-011_MCPサーバ-反復2.md"
+
+[[nodes]]
+id = "FCR-LGX-012"
+type = "FCR"
+path = "docs/frontend-pass/check-results/FCR-LGX-012_全体境界整合-反復2.md"
+
+# ===== NFR（independent） =====
+
+[[nodes]]
+id = "NFR-LGX-001"
+type = "NFR"
+path = "docs/nfr/NFR-LGX-001_非機能要件.md"
+
+# ===== AT（independent, 受け入れテスト / 暗黙知・実機受け入れの独立検証チャネル）=====
+
+[[nodes]]
+id = "AT-LGX-001"
+type = "AT"
+path = "docs/acceptance-tests/AT-LGX-001_embedding実機受け入れ.md"
+
+# ===== VAL（independent, 横断的妥当性確認）=====
+
+[[nodes]]
+id = "VAL-LGX-001"
+type = "VAL"
+path = "docs/validation/VAL-LGX-001_外部照合記録.md"
+
+# ===== RPC（independent, 抽象責務→具体責務の保存率検査。対象は本文 metadata）=====
+
+[[nodes]]
+id = "RPC-LGX-001"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "RPC-LGX-002"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "RPC-LGX-003"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "RPC-LGX-004"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "RPC-LGX-005"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "RPC-LGX-006"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "RPC-LGX-007"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "RPC-LGX-008"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "RPC-LGX-009"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "RPC-LGX-010"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "RPC-LGX-011"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "RPC-LGX-012"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "RPC-LGX-013"
+type = "RPC"
+path = "docs/responsibility-preservation/RPC-LGX-013_standaloneドリフト対比.md"
+
+# ===== UC（chain 起点） =====
+
+[[nodes]]
+id = "UC-LGX-001"
+type = "UC"
+path = "docs/usecases/UC-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "UC-LGX-002"
+type = "UC"
+path = "docs/usecases/UC-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "UC-LGX-003"
+type = "UC"
+path = "docs/usecases/UC-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "UC-LGX-004"
+type = "UC"
+path = "docs/usecases/UC-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "UC-LGX-005"
+type = "UC"
+path = "docs/usecases/UC-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "UC-LGX-006"
+type = "UC"
+path = "docs/usecases/UC-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "UC-LGX-007"
+type = "UC"
+path = "docs/usecases/UC-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "UC-LGX-008"
+type = "UC"
+path = "docs/usecases/UC-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "UC-LGX-009"
+type = "UC"
+path = "docs/usecases/UC-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "UC-LGX-010"
+type = "UC"
+path = "docs/usecases/UC-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "UC-LGX-011"
+type = "UC"
+path = "docs/usecases/UC-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "UC-LGX-012"
+type = "UC"
+path = "docs/usecases/UC-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "UC-LGX-013"
+type = "UC"
+path = "docs/usecases/UC-LGX-013_standaloneドリフト対比.md"
+
+# ===== RBA（chain, 親 UC は seq 番号で推測）=====
+
+[[nodes]]
+id = "RBA-LGX-001"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "RBA-LGX-002"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "RBA-LGX-003"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "RBA-LGX-004"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "RBA-LGX-005"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "RBA-LGX-006"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "RBA-LGX-007"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "RBA-LGX-008"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "RBA-LGX-009"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "RBA-LGX-010"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "RBA-LGX-011"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "RBA-LGX-012"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "RBA-LGX-013"
+type = "RBA"
+path = "docs/robustness-abstract/RBA-LGX-013_standaloneドリフト対比.md"
+
+# ===== SEQA（chain, 親 RBA は seq 番号で推測）=====
+
+[[nodes]]
+id = "SEQA-LGX-001"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "SEQA-LGX-002"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "SEQA-LGX-003"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "SEQA-LGX-004"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "SEQA-LGX-005"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "SEQA-LGX-006"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "SEQA-LGX-007"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "SEQA-LGX-008"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "SEQA-LGX-009"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "SEQA-LGX-010"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "SEQA-LGX-011"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "SEQA-LGX-012"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "SEQA-LGX-013"
+type = "SEQA"
+path = "docs/sequence-abstract/SEQA-LGX-013_standaloneドリフト対比.md"
+
+# ===== RBD（chain, 親 SEQA は seq 番号で推測。具体側=レイヤ汚染検査対象）=====
+
+[[nodes]]
+id = "RBD-LGX-001"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "RBD-LGX-002"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "RBD-LGX-003"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "RBD-LGX-004"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "RBD-LGX-005"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "RBD-LGX-006"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "RBD-LGX-007"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "RBD-LGX-008"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "RBD-LGX-009"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "RBD-LGX-010"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "RBD-LGX-011"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "RBD-LGX-012"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "RBD-LGX-013"
+type = "RBD"
+path = "docs/robustness-detail/RBD-LGX-013_standaloneドリフト対比.md"
+
+# ===== SEQD（chain, 親 RBD は seq 番号で推測。具体側=レイヤ汚染検査対象）=====
+
+[[nodes]]
+id = "SEQD-LGX-001"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "SEQD-LGX-002"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "SEQD-LGX-003"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "SEQD-LGX-004"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "SEQD-LGX-005"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "SEQD-LGX-006"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "SEQD-LGX-007"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "SEQD-LGX-008"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "SEQD-LGX-009"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "SEQD-LGX-010"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "SEQD-LGX-011"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "SEQD-LGX-012"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "SEQD-LGX-013"
+type = "SEQD"
+path = "docs/sequence-detail/SEQD-LGX-013_standaloneドリフト対比.md"
+
+# ===== DD（chain, 親 SEQD は seq 番号で推測。言語確定=レイヤ汚染検査の対象外）=====
+
+[[nodes]]
+id = "DD-LGX-001"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "DD-LGX-002"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "DD-LGX-003"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "DD-LGX-004"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "DD-LGX-005"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "DD-LGX-006"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "DD-LGX-007"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "DD-LGX-008"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "DD-LGX-009"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "DD-LGX-010"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "DD-LGX-011"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "DD-LGX-012"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "DD-LGX-013"
+type = "DD"
+path = "docs/detailed-design/DD-LGX-013_standaloneドリフト対比.md"
+
+# ===== TS（chain: 親 DD）=====
+
+[[nodes]]
+id = "TS-LGX-001"
+type = "TS"
+path = "docs/test-specs/TS-LGX-001_グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "TS-LGX-002"
+type = "TS"
+path = "docs/test-specs/TS-LGX-002_コンテキスト解決.md"
+
+[[nodes]]
+id = "TS-LGX-003"
+type = "TS"
+path = "docs/test-specs/TS-LGX-003_サブノード自動抽出.md"
+
+[[nodes]]
+id = "TS-LGX-004"
+type = "TS"
+path = "docs/test-specs/TS-LGX-004_粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "TS-LGX-005"
+type = "TS"
+path = "docs/test-specs/TS-LGX-005_逆方向探索.md"
+
+[[nodes]]
+id = "TS-LGX-006"
+type = "TS"
+path = "docs/test-specs/TS-LGX-006_順方向探索.md"
+
+[[nodes]]
+id = "TS-LGX-007"
+type = "TS"
+path = "docs/test-specs/TS-LGX-007_embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "TS-LGX-008"
+type = "TS"
+path = "docs/test-specs/TS-LGX-008_フィードバックループ.md"
+
+[[nodes]]
+id = "TS-LGX-009"
+type = "TS"
+path = "docs/test-specs/TS-LGX-009_プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "TS-LGX-010"
+type = "TS"
+path = "docs/test-specs/TS-LGX-010_トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "TS-LGX-011"
+type = "TS"
+path = "docs/test-specs/TS-LGX-011_閾値キャリブレーション.md"
+
+[[nodes]]
+id = "TS-LGX-012"
+type = "TS"
+path = "docs/test-specs/TS-LGX-012_ベースライン凍結管理.md"
+
+[[nodes]]
+id = "TS-LGX-013"
+type = "TS"
+path = "docs/test-specs/TS-LGX-013_standaloneドリフト対比.md"
+
+# ===== TC / SRC（chain: 親 TS / 親 TC）。exemplar: UC-001 legixy-check =====
+
+[[nodes]]
+id = "TC-LGX-001"
+type = "TC"
+path = "crates/legixy-check/tests/tc_lgx_001.rs"
+
+[[nodes]]
+id = "SRC-LGX-001"
+type = "SRC"
+path = "crates/legixy-check/src/lib.rs"
+
+[[nodes]]
+id = "TC-LGX-002"
+type = "TC"
+path = "crates/legixy-ctx/tests/tc_lgx_002.rs"
+
+[[nodes]]
+id = "SRC-LGX-002"
+type = "SRC"
+path = "crates/legixy-ctx/src/compiler.rs"
+
+[[nodes]]
+id = "TC-LGX-003"
+type = "TC"
+path = "crates/legixy-graph/tests/tc_lgx_003.rs"
+
+[[nodes]]
+id = "SRC-LGX-003"
+type = "SRC"
+path = "crates/legixy-graph/src/subnode.rs"
+
+[[nodes]]
+id = "TC-LGX-004"
+type = "TC"
+path = "crates/legixy-ctx/tests/tc_lgx_004.rs"
+
+[[nodes]]
+id = "SRC-LGX-004"
+type = "SRC"
+path = "crates/legixy-ctx/src/lib.rs"
+
+[[nodes]]
+id = "TC-LGX-005"
+type = "TC"
+path = "crates/legixy-nav/tests/tc_lgx_005.rs"
+
+[[nodes]]
+id = "SRC-LGX-005"
+type = "SRC"
+path = "crates/legixy-nav/src/investigate.rs"
+
+[[nodes]]
+id = "TC-LGX-006"
+type = "TC"
+path = "crates/legixy-nav/tests/tc_lgx_006.rs"
+
+[[nodes]]
+id = "SRC-LGX-006"
+type = "SRC"
+path = "crates/legixy-nav/src/impact.rs"
+
+[[nodes]]
+id = "TC-LGX-007"
+type = "TC"
+path = "crates/legixy-embed/tests/tc_lgx_007.rs"
+
+[[nodes]]
+id = "SRC-LGX-007"
+type = "SRC"
+path = "crates/legixy-embed/src/orchestrator.rs"
+
+[[nodes]]
+id = "TC-LGX-008"
+type = "TC"
+path = "crates/legixy-feedback/tests/tc_lgx_008.rs"
+
+[[nodes]]
+id = "SRC-LGX-008"
+type = "SRC"
+path = "crates/legixy-feedback/src/manager.rs"
+
+[[nodes]]
+id = "TC-LGX-009"
+type = "TC"
+path = "crates/legixy-mig/tests/tc_lgx_009.rs"
+
+[[nodes]]
+id = "SRC-LGX-009"
+type = "SRC"
+path = "crates/legixy-mig/src/lib.rs"
+
+[[nodes]]
+id = "TC-LGX-010"
+type = "TC"
+path = "crates/legixy-embed/tests/tc_lgx_010.rs"
+
+[[nodes]]
+id = "SRC-LGX-010"
+type = "SRC"
+path = "crates/legixy-embed/src/report.rs"
+
+[[nodes]]
+id = "TC-LGX-011"
+type = "TC"
+path = "crates/legixy-embed/tests/tc_lgx_011.rs"
+
+[[nodes]]
+id = "SRC-LGX-011"
+type = "SRC"
+path = "crates/legixy-embed/src/calibrate.rs"
+
+[[nodes]]
+id = "TC-LGX-012"
+type = "TC"
+path = "crates/legixy-embed/tests/tc_lgx_012.rs"
+
+[[nodes]]
+id = "SRC-LGX-012"
+type = "SRC"
+path = "crates/legixy-embed/src/snapshot/mod.rs"
+
+[[nodes]]
+id = "TC-LGX-013"
+type = "TC"
+path = "crates/legixy-embed/tests/tc_lgx_013.rs"
+
+[[nodes]]
+id = "SRC-LGX-013"
+type = "SRC"
+path = "crates/legixy-embed/src/drift/mod.rs"
+
+
+# ===== TP（independent, 親 SPEC は本文 metadata）=====
+
+[[nodes]]
+id = "TP-LGX-001"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-001_全体要求.md"
+
+[[nodes]]
+id = "TP-LGX-002"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-002_グラフ基盤.md"
+
+[[nodes]]
+id = "TP-LGX-003"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-003_コンテキスト解決.md"
+
+[[nodes]]
+id = "TP-LGX-004"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-004_検証.md"
+
+[[nodes]]
+id = "TP-LGX-005"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-005_グラフ走査.md"
+
+[[nodes]]
+id = "TP-LGX-006"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-006_embeddingとドリフト検出.md"
+
+[[nodes]]
+id = "TP-LGX-007"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-007_フィードバックループ.md"
+
+[[nodes]]
+id = "TP-LGX-008"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-008_マイグレーション.md"
+
+[[nodes]]
+id = "TP-LGX-009"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-009_MCPサーバ.md"
+
+[[nodes]]
+id = "TP-LGX-010"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-010_embedding運用と監査.md"
+
+# ===== TP[UC]（independent, 親 UC は本文 metadata。UC レベル TDD ループ）=====
+
+[[nodes]]
+id = "TP-LGX-011"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-011_UC001グラフ読み込みと検証.md"
+
+[[nodes]]
+id = "TP-LGX-012"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-012_UC002コンテキスト解決.md"
+
+[[nodes]]
+id = "TP-LGX-013"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-013_UC003サブノード自動抽出.md"
+
+[[nodes]]
+id = "TP-LGX-014"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-014_UC004粒度制御付きコンテキスト解決.md"
+
+[[nodes]]
+id = "TP-LGX-015"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-015_UC005逆方向探索.md"
+
+[[nodes]]
+id = "TP-LGX-016"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-016_UC006順方向探索.md"
+
+[[nodes]]
+id = "TP-LGX-017"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-017_UC007embedding生成とドリフト検出.md"
+
+[[nodes]]
+id = "TP-LGX-018"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-018_UC008フィードバックループ.md"
+
+[[nodes]]
+id = "TP-LGX-019"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-019_UC009プロジェクト初期化とマイグレーション.md"
+
+[[nodes]]
+id = "TP-LGX-020"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-020_UC010トレーサビリティ健全性監査.md"
+
+[[nodes]]
+id = "TP-LGX-021"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-021_UC011閾値キャリブレーション.md"
+
+[[nodes]]
+id = "TP-LGX-022"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-022_UC012ベースライン凍結管理.md"
+
+[[nodes]]
+id = "TP-LGX-023"
+type = "TP"
+path = "docs/test-perspectives/TP-LGX-023_UC013standaloneドリフト対比.md"
+
+# ===== GAP（independent, 親 TP は本文 metadata。敵対的精査後の生存集合）=====
+
+[[nodes]]
+id = "GAP-LGX-001"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-001_uc網羅宣言と下位spec拡張の不一致.md"
+
+[[nodes]]
+id = "GAP-LGX-002"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-002_不変条件マトリクスの整合検証手段欠如.md"
+
+[[nodes]]
+id = "GAP-LGX-003"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-003_検証owner要否ポリシーの欠如.md"
+
+[[nodes]]
+id = "GAP-LGX-004"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-004_umbrella変更ポリシー統治手順の欠如.md"
+
+[[nodes]]
+id = "GAP-LGX-005"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-005_mcp-inv-1実装owner語義の不整合.md"
+
+[[nodes]]
+id = "GAP-LGX-023"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-023_refresh-subnodes-rewrite-atomicity.md"
+
+[[nodes]]
+id = "GAP-LGX-024"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-024_refresh-backup-naming-retention.md"
+
+[[nodes]]
+id = "GAP-LGX-041"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-041_context-log書込失敗時の本処理成否.md"
+
+[[nodes]]
+id = "GAP-LGX-043"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-043_上流に存在しないパスと部分欠損の扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-045"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-045_sectionsの不正形式入力の扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-047"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-047_outline-only見出し皆無時の出力.md"
+
+[[nodes]]
+id = "GAP-LGX-061"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-061_空グラフ時のcheck挙動.md"
+
+[[nodes]]
+id = "GAP-LGX-064"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-064_形式検証カテゴリのseverity割当完全性.md"
+
+[[nodes]]
+id = "GAP-LGX-065"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-065_Ok_severityの使用条件.md"
+
+[[nodes]]
+id = "GAP-LGX-072"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-072_全層checkの冪等性射程.md"
+
+[[nodes]]
+id = "GAP-LGX-081"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-081_custom-エッジの方向セマンティクス.md"
+
+[[nodes]]
+id = "GAP-LGX-085"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-085_max_depth打ち切りの可観測性.md"
+
+[[nodes]]
+id = "GAP-LGX-101"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-101_空テキストノードのembedding生成.md"
+
+[[nodes]]
+id = "GAP-LGX-102"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-102_巨大テキストのトークン上限超過時の扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-103"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-103_モデル出力shapeの異常時の扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-104"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-104_ゼロベクトルcosineと浮動小数点推論の数値安定性.md"
+
+[[nodes]]
+id = "GAP-LGX-105"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-105_cosine類似度の値域定義.md"
+
+[[nodes]]
+id = "GAP-LGX-106"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-106_embed時のモデル不在読込失敗の挙動.md"
+
+[[nodes]]
+id = "GAP-LGX-108"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-108_embed部分失敗とトランザクション境界の整合.md"
+
+[[nodes]]
+id = "GAP-LGX-110"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-110_未生成ノードのドリフト扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-113"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-113_ContextualRetrievalの並行性と非決定性.md"
+
+[[nodes]]
+id = "GAP-LGX-114"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-114_contentハッシュの正規化方針.md"
+
+[[nodes]]
+id = "GAP-LGX-115"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-115_modelバージョン識別子の生成と変化判定.md"
+
+[[nodes]]
+id = "GAP-LGX-118"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-118_サブノードcontentRange不正値の検証.md"
+
+[[nodes]]
+id = "GAP-LGX-120"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-120_embedのjson出力スキーマと個別ノード指定引数契約.md"
+
+[[nodes]]
+id = "GAP-LGX-121"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-121_observe-message境界.md"
+
+[[nodes]]
+id = "GAP-LGX-122"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-122_related-id重複と実在検証.md"
+
+[[nodes]]
+id = "GAP-LGX-124"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-124_reject-reason境界.md"
+
+[[nodes]]
+id = "GAP-LGX-126"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-126_DB破損時の挙動.md"
+
+[[nodes]]
+id = "GAP-LGX-127"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-127_proposal不正遷移と終端不可逆性.md"
+
+[[nodes]]
+id = "GAP-LGX-129"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-129_observation状態集合と遷移定義.md"
+
+[[nodes]]
+id = "GAP-LGX-135"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-135_proposal保持ポリシー.md"
+
+[[nodes]]
+id = "GAP-LGX-139"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-139_context-log記録失敗時の本体影響.md"
+
+[[nodes]]
+id = "GAP-LGX-140"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-140_人間のみCLI実行の強制手段.md"
+
+[[nodes]]
+id = "GAP-LGX-141"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-141_空プロジェクトのmigrate挙動.md"
+
+[[nodes]]
+id = "GAP-LGX-142"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-142_大規模入力のサイズ所要時間境界.md"
+
+[[nodes]]
+id = "GAP-LGX-143"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-143_init既存ファイル判定境界.md"
+
+[[nodes]]
+id = "GAP-LGX-144"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-144_ソースデータ破損の検出方針.md"
+
+[[nodes]]
+id = "GAP-LGX-146"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-146_マッピング不可ID時の処理方針.md"
+
+[[nodes]]
+id = "GAP-LGX-148"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-148_部分migrate中断からの再開戦略.md"
+
+[[nodes]]
+id = "GAP-LGX-150"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-150_migrate中の同時アクセス競合.md"
+
+[[nodes]]
+id = "GAP-LGX-151"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-151_二重migrate及びauto重複起動の排他.md"
+
+[[nodes]]
+id = "GAP-LGX-152"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-152_graphtoml書込のアトミック性.md"
+
+[[nodes]]
+id = "GAP-LGX-153"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-153_bakファイル衝突時の方針.md"
+
+[[nodes]]
+id = "GAP-LGX-154"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-154_バージョン判定の根拠.md"
+
+[[nodes]]
+id = "GAP-LGX-157"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-157_migrateフロム引数の意味契約矛盾.md"
+
+[[nodes]]
+id = "GAP-LGX-158"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-158_matrix抽出規則と不正入力.md"
+
+[[nodes]]
+id = "GAP-LGX-159"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-159_idマップの一意性と重複検出.md"
+
+[[nodes]]
+id = "GAP-LGX-160"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-160_書換え対象IDの追跡可能性.md"
+
+[[nodes]]
+id = "GAP-LGX-162"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-162_エラー応答へのmeta付与可否.md"
+
+[[nodes]]
+id = "GAP-LGX-168"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-168_サーバ起動初期化失敗時の挙動.md"
+
+[[nodes]]
+id = "GAP-LGX-169"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-169_CLI子プロセスのタイムアウト.md"
+
+[[nodes]]
+id = "GAP-LGX-170"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-170_MCP層自身のロギングと機密マスキング.md"
+
+[[nodes]]
+id = "GAP-LGX-171"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-171_PERF03参照値の整合.md"
+
+[[nodes]]
+id = "GAP-LGX-185"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-185_スコアの特殊浮動小数点値の扱い.md"
+
+[[nodes]]
+id = "GAP-LGX-186"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-186_同一次元別モデルバージョンのベースライン妥当性.md"
+
+[[nodes]]
+id = "GAP-LGX-187"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-187_audit-healthコマンド新設.md"
+
+[[nodes]]
+id = "GAP-LGX-188"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-188_TP009-exit0-stderr-warnings転送観点.md"
+
+# ----- GAP[UC]（UC レベル TDD ループ。親 TP は本文 metadata）-----
+
+[[nodes]]
+id = "GAP-LGX-189"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-189_UC001破損パス失敗フロー未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-190"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-190_UC001部分失敗継続フロー未反映.md"
+
+[[nodes]]
+id = "GAP-LGX-191"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-191_UC002-command-flag-spec-undefined.md"
+
+[[nodes]]
+id = "GAP-LGX-192"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-192_UC002-context-result-fields-vs-5sections.md"
+
+[[nodes]]
+id = "GAP-LGX-193"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-193_UC002-alt-2a-vs-req20-mismatch.md"
+
+[[nodes]]
+id = "GAP-LGX-194"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-194_UC002-flag-combination-priority-not-in-flow.md"
+
+[[nodes]]
+id = "GAP-LGX-195"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-195_UC002-oversize-error-flow-missing.md"
+
+[[nodes]]
+id = "GAP-LGX-196"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-196_UC002-context-log-write-failure-not-in-flow.md"
+
+[[nodes]]
+id = "GAP-LGX-197"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-197_UC002-upstream-partial-missing-not-in-flow.md"
+
+[[nodes]]
+id = "GAP-LGX-198"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-198_UC002-granularity-param-not-in-flow.md"
+
+[[nodes]]
+id = "GAP-LGX-201"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-201_UC003明示サブノードマージ後状態未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-202"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-202_UC003Step4一意性検証主体の矛盾.md"
+
+[[nodes]]
+id = "GAP-LGX-203"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-203_UC003代替フローループ継続未明示.md"
+
+[[nodes]]
+id = "GAP-LGX-204"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-204_UC003ファイル破損IOエラー失敗パス未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-205"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-205_UC003Step2c正規化委譲未明示.md"
+
+[[nodes]]
+id = "GAP-LGX-211"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-211_UC004事前条件検証タイミング未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-212"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-212_UC004不正granularity値の失敗パス欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-213"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-213_UC004fallback発火条件の粒度が不明確.md"
+
+[[nodes]]
+id = "GAP-LGX-214"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-214_UC004フラグ適用順序の非記述.md"
+
+[[nodes]]
+id = "GAP-LGX-215"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-215_UC004Step3失敗パスの欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-216"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-216_UC004fallback時のUpstreamArtifactフォーマット未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-217"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-217_UC004監査ログ記録ステップの欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-221"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-221_UC005事前条件engine-db意味とBFS分岐の衝突.md"
+
+[[nodes]]
+id = "GAP-LGX-222"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-222_UC005max-depth引数がフローに未記載.md"
+
+[[nodes]]
+id = "GAP-LGX-223"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-223_UC005代替フロー3a出力差分未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-224"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-224_UC005代替フロー3a遷移条件曖昧.md"
+
+[[nodes]]
+id = "GAP-LGX-225"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-225_UC005graph-toml不在破損の失敗パス未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-226"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-226_UC005起点ID不在時の挙動未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-231"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-231_UC006-Step4返却と事後条件の橋渡し欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-232"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-232_UC006-事後条件にexit0不記載.md"
+
+[[nodes]]
+id = "GAP-LGX-233"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-233_UC006-start_ids複数形と単数フロー記述の不整合.md"
+
+[[nodes]]
+id = "GAP-LGX-234"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-234_UC006-2a起点不在のexitコード表現矛盾.md"
+
+[[nodes]]
+id = "GAP-LGX-235"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-235_UC006-graphtoml不在・破損の失敗パス未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-236"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-236_UC006-maxdepth打ち切りstderrInfo未反映.md"
+
+[[nodes]]
+id = "GAP-LGX-241"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-241_UC007-embed代替フロー終了コード未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-242"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-242_UC007-drift代替フロー欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-243"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-243_UC007-embed部分失敗継続フロー未反映.md"
+
+[[nodes]]
+id = "GAP-LGX-244"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-244_UC007-driftStep2現行embedding生成の曖昧性.md"
+
+[[nodes]]
+id = "GAP-LGX-245"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-245_UC007-drift閾値未満の事後条件欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-251"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-251_feedback-コマンド入力受取方法未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-252"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-252_代替フロー1a発火条件粒度不明確.md"
+
+[[nodes]]
+id = "GAP-LGX-253"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-253_claim-release発火条件未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-254"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-254_アクター定義矛盾-feedback-システム帰属.md"
+
+[[nodes]]
+id = "GAP-LGX-255"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-255_FB-INV-4事後条件フロー接続不明.md"
+
+[[nodes]]
+id = "GAP-LGX-256"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-256_orphan-file-proposal変換先欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-257"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-257_analyze-skipped発火条件未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-261"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-261_migrate処理順序とSPEC確定順序の乖離.md"
+
+[[nodes]]
+id = "GAP-LGX-262"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-262_migrate移行レポートの観察可能性.md"
+
+[[nodes]]
+id = "GAP-LGX-263"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-263_init生成物からenginedb欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-264"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-264_init既存ファイル判定分岐の非網羅.md"
+
+[[nodes]]
+id = "GAP-LGX-265"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-265_代替フローのexit코드収束不明.md"
+
+[[nodes]]
+id = "GAP-LGX-266"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-266_migrate破損入力失敗パス欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-267"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-267_migrate各段階失敗パスの非列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-268"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-268_vectorsbin不在時の挙動不明.md"
+
+[[nodes]]
+id = "GAP-LGX-269"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-269_initのmatrixmd生成の親SPEC裏付け不在.md"
+
+[[nodes]]
+id = "GAP-LGX-270"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-270_migrate設定ファイル探索順のUC不可視.md"
+
+[[nodes]]
+id = "GAP-LGX-271"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-271_UC010-Step2-graph-embed-ロード独立性未明示.md"
+
+[[nodes]]
+id = "GAP-LGX-272"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-272_UC010-スキップ集約Warning代替フロー未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-273"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-273_UC010-Step2-graphtoml破損失敗パス未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-274"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-274_UC010-関連SPEC参照誤りSPEC006-REQ10.md"
+
+[[nodes]]
+id = "GAP-LGX-275"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-275_UC010-関連NFR参照誤りOBS06.md"
+
+[[nodes]]
+id = "GAP-LGX-281"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-281_calibrate-代替フロー網羅性.md"
+
+[[nodes]]
+id = "GAP-LGX-282"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-282_calibrate-recommend分岐非網羅.md"
+
+[[nodes]]
+id = "GAP-LGX-283"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-283_calibrate-次元不一致スキップ未記述.md"
+
+[[nodes]]
+id = "GAP-LGX-284"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-284_calibrate-非有限スコア失敗パス欠落.md"
+
+[[nodes]]
+id = "GAP-LGX-285"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-285_calibrate-全件失敗vs部分スキップ境界不明.md"
+
+[[nodes]]
+id = "GAP-LGX-286"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-286_calibrate-stdout-stderr分離不明示.md"
+
+[[nodes]]
+id = "GAP-LGX-291"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-291_UC012delete-label解決失敗exit1パス未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-292"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-292_UC012create書込み失敗パス未定義.md"
+
+[[nodes]]
+id = "GAP-LGX-301"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-301_UC013token二段解決の最終分岐未列挙.md"
+
+[[nodes]]
+id = "GAP-LGX-302"
+type = "GAP"
+path = "docs/gap-analysis/GAP-LGX-302_UC013baseline_sourceの解決後id反映未明示.md"
+
+[[nodes]]
+id = "ADR-LGX-001"
+type = "ADR"
+path = "docs/adr/ADR-LGX-001_migrate-from-to-path-canonical.md"
+
+[[nodes]]
+id = "ADR-LGX-002"
+type = "ADR"
+path = "docs/adr/ADR-LGX-002_embed-node-force-additive-extension.md"
+
+[[nodes]]
+id = "ADR-LGX-003"
+type = "ADR"
+path = "docs/adr/ADR-LGX-003_embedding-determinism-model.md"
+
+[[nodes]]
+id = "ADR-LGX-004"
+type = "ADR"
+path = "docs/adr/ADR-LGX-004_availability-over-audit-completeness.md"
+
+[[nodes]]
+id = "ADR-LGX-005"
+type = "ADR"
+path = "docs/adr/ADR-LGX-005_protect-irreproducible-data-on-corruption.md"
+
+[[nodes]]
+id = "ADR-LGX-006"
+type = "ADR"
+path = "docs/adr/ADR-LGX-006_human-only-cli-declarative-enforcement.md"
+
+[[nodes]]
+id = "ADR-LGX-007"
+type = "ADR"
+path = "docs/adr/ADR-LGX-007_nonfinite-score-and-model-version-policy.md"
+
+[[nodes]]
+id = "ADR-LGX-008"
+type = "ADR"
+path = "docs/adr/ADR-LGX-008_graphdag-category-separation.md"
+
+[[nodes]]
+id = "ADR-LGX-009"
+type = "ADR"
+path = "docs/adr/ADR-LGX-009_contextual-retrieval-determinism.md"
+
+[[nodes]]
+id = "ADR-LGX-010"
+type = "ADR"
+path = "docs/adr/ADR-LGX-010_mcp-child-process-timeout.md"
+
+[[nodes]]
+id = "ADR-LGX-011"
+type = "ADR"
+path = "docs/adr/ADR-LGX-011_migrate-concurrency-risk-acceptance.md"
+
+[[nodes]]
+id = "ADR-LGX-012"
+type = "ADR"
+path = "docs/adr/ADR-LGX-012_repository-restart-bootstrap.md"
+
+[[nodes]]
+id = "ADR-LGX-013"
+type = "ADR"
+path = "docs/adr/ADR-LGX-013_check-audit-health-additive-extension.md"
+
+[[nodes]]
+id = "ADR-LGX-014"
+type = "ADR"
+path = "docs/adr/ADR-LGX-014_v3-spec-divergence-governance.md"
+
+[[nodes]]
+id = "ADR-LGX-015"
+type = "ADR"
+path = "docs/adr/ADR-LGX-015_db-path-systematics.md"
+
+[[nodes]]
+id = "ADR-LGX-016"
+type = "ADR"
+path = "docs/adr/ADR-LGX-016_env-var-conventions.md"
+
+[[nodes]]
+id = "ADR-LGX-017"
+type = "ADR"
+path = "docs/adr/ADR-LGX-017_devproc-path-canonicalization.md"
+
+[[nodes]]
+id = "ADR-LGX-018"
+type = "ADR"
+path = "docs/adr/ADR-LGX-018_section4-rba-blocking-batch-ratification.md"
+
+[[nodes]]
+id = "ADR-LGX-019"
+type = "ADR"
+path = "docs/adr/ADR-LGX-019_yojukuryo-resolution.md"
+
+[[nodes]]
+id = "ADR-LGX-020"
+type = "ADR"
+path = "docs/adr/ADR-LGX-020_crate-split-and-shared-type-freeze.md"
+
+[[nodes]]
+id = "ADR-LGX-021"
+type = "ADR"
+path = "docs/adr/ADR-LGX-021_cross-dd-type-coordination.md"
+
+[[nodes]]
+id = "ADR-LGX-022"
+type = "ADR"
+path = "docs/adr/ADR-LGX-022_perf08-l12-throughput-reevaluation.md"
+
+[[nodes]]
+id = "ADR-LGX-023"
+type = "ADR"
+path = "docs/adr/ADR-LGX-023_refresh-subnodes-engine-db-reconciliation.md"
+
+# ============================================
+# 配送軸ノード（DevProc_V4.1 §12。area=CLI / MCP。CTR=境界契約・チェーン根 → DLV → TS → TC → SRC(binary)）
+# ============================================
+
+[[nodes]]
+id = "CTR-CLI-001"
+type = "CTR"
+path = "docs/contracts/CTR-CLI-001_cli-boundary-contract.md"
+
+[[nodes]]
+id = "DLV-CLI-001"
+type = "DLV"
+path = "docs/delivery-design/DLV-CLI-001_cli-dispatch.md"
+
+[[nodes]]
+id = "TS-CLI-001"
+type = "TS"
+path = "docs/test-specs/TS-CLI-001_cli-conformance.md"
+
+[[nodes]]
+id = "TC-CLI-001"
+type = "TC"
+path = "crates/legixy-cli/tests/cli.rs"
+
+[[nodes]]
+id = "SRC-CLI-001"
+type = "SRC"
+path = "crates/legixy-cli/src/main.rs"
+
+[[nodes]]
+id = "CTR-MCP-001"
+type = "CTR"
+path = "docs/contracts/CTR-MCP-001_mcp-boundary-contract.md"
+
+[[nodes]]
+id = "DLV-MCP-001"
+type = "DLV"
+path = "docs/delivery-design/DLV-MCP-001_mcp-dispatch.md"
+
+[[nodes]]
+id = "TS-MCP-001"
+type = "TS"
+path = "docs/test-specs/TS-MCP-001_mcp-conformance.md"
+
+[[nodes]]
+id = "TC-MCP-001"
+type = "TC"
+path = "ts-mcp/tests/e2e.test.ts"
+
+[[nodes]]
+id = "SRC-MCP-001"
+type = "SRC"
+path = "ts-mcp/src/index.ts"
+
+# ===== PAI（完成品適合検査、DevProc_V4.1 §13。independent。作者独立・黒箱・実環境）=====
+# 外部黒箱スイート legixy.test を正式 PAI 成果物化。親=CTR + SPEC（本文 metadata で参照）。
+
+[[nodes]]
+id = "PAI-CLI-001"
+type = "PAI"
+path = "docs/product-acceptance/PAI-CLI-001_CLI完成品契約適合検査.md"
+
+[[nodes]]
+id = "PAI-MCP-001"
+type = "PAI"
+path = "docs/product-acceptance/PAI-MCP-001_MCP完成品契約適合検査.md"
+
+# ============================================
+# EDGES（chain。UC→RBA→SEQA→RBD→SEQD→DD→TS→TC→SRC の隣接ペアを明示）
+# 書式: [[edges]] from / to / kind ("chain" | "custom" | "parent_child")
+# ============================================
+
+# 配送軸 chain edges（CTR → DLV → TS → TC → SRC、area=CLI / MCP）
+[[edges]]
+from = "CTR-CLI-001"
+to = "DLV-CLI-001"
+kind = "chain"
+
+[[edges]]
+from = "DLV-CLI-001"
+to = "TS-CLI-001"
+kind = "chain"
+
+[[edges]]
+from = "TS-CLI-001"
+to = "TC-CLI-001"
+kind = "chain"
+
+[[edges]]
+from = "TC-CLI-001"
+to = "SRC-CLI-001"
+kind = "chain"
+
+[[edges]]
+from = "CTR-MCP-001"
+to = "DLV-MCP-001"
+kind = "chain"
+
+[[edges]]
+from = "DLV-MCP-001"
+to = "TS-MCP-001"
+kind = "chain"
+
+[[edges]]
+from = "TS-MCP-001"
+to = "TC-MCP-001"
+kind = "chain"
+
+[[edges]]
+from = "TC-MCP-001"
+to = "SRC-MCP-001"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-001"
+to = "RBA-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-001"
+to = "SEQA-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-001"
+to = "RBD-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-001"
+to = "SEQD-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-001"
+to = "DD-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-002"
+to = "DD-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-003"
+to = "DD-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-004"
+to = "DD-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-005"
+to = "DD-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-006"
+to = "DD-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-007"
+to = "DD-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-008"
+to = "DD-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-009"
+to = "DD-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-010"
+to = "DD-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-011"
+to = "DD-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-012"
+to = "DD-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "SEQD-LGX-013"
+to = "DD-LGX-013"
+kind = "chain"
+
+# ===== DD -> TS（chain）=====
+
+[[edges]]
+from = "DD-LGX-001"
+to = "TS-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-002"
+to = "TS-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-003"
+to = "TS-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-004"
+to = "TS-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-005"
+to = "TS-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-006"
+to = "TS-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-007"
+to = "TS-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-008"
+to = "TS-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-009"
+to = "TS-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-010"
+to = "TS-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-011"
+to = "TS-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-012"
+to = "TS-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "DD-LGX-013"
+to = "TS-LGX-013"
+kind = "chain"
+
+# ===== TS -> TC -> SRC（chain）。exemplar: UC-001 =====
+
+[[edges]]
+from = "TS-LGX-001"
+to = "TC-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-001"
+to = "SRC-LGX-001"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-002"
+to = "TC-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-002"
+to = "SRC-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-003"
+to = "TC-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-003"
+to = "SRC-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-004"
+to = "TC-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-004"
+to = "SRC-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-005"
+to = "TC-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-005"
+to = "SRC-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-006"
+to = "TC-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-006"
+to = "SRC-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-007"
+to = "TC-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-007"
+to = "SRC-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-008"
+to = "TC-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-008"
+to = "SRC-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-009"
+to = "TC-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-009"
+to = "SRC-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-010"
+to = "TC-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-010"
+to = "SRC-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-011"
+to = "TC-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-011"
+to = "SRC-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-012"
+to = "TC-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-012"
+to = "SRC-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "TS-LGX-013"
+to = "TC-LGX-013"
+kind = "chain"
+
+[[edges]]
+from = "TC-LGX-013"
+to = "SRC-LGX-013"
+kind = "chain"
+
+
+[[edges]]
+from = "RBD-LGX-002"
+to = "SEQD-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-003"
+to = "SEQD-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-004"
+to = "SEQD-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-005"
+to = "SEQD-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-006"
+to = "SEQD-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-007"
+to = "SEQD-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-008"
+to = "SEQD-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-009"
+to = "SEQD-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-010"
+to = "SEQD-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-011"
+to = "SEQD-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-012"
+to = "SEQD-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "RBD-LGX-013"
+to = "SEQD-LGX-013"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-002"
+to = "RBD-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-003"
+to = "RBD-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-004"
+to = "RBD-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-005"
+to = "RBD-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-006"
+to = "RBD-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-007"
+to = "RBD-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-008"
+to = "RBD-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-009"
+to = "RBD-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-010"
+to = "RBD-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-011"
+to = "RBD-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-012"
+to = "RBD-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "SEQA-LGX-013"
+to = "RBD-LGX-013"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-002"
+to = "SEQA-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-003"
+to = "SEQA-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-004"
+to = "SEQA-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-005"
+to = "SEQA-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-006"
+to = "SEQA-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-007"
+to = "SEQA-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-008"
+to = "SEQA-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-009"
+to = "SEQA-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-010"
+to = "SEQA-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-011"
+to = "SEQA-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-012"
+to = "SEQA-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "RBA-LGX-013"
+to = "SEQA-LGX-013"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-002"
+to = "RBA-LGX-002"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-003"
+to = "RBA-LGX-003"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-004"
+to = "RBA-LGX-004"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-005"
+to = "RBA-LGX-005"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-006"
+to = "RBA-LGX-006"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-007"
+to = "RBA-LGX-007"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-008"
+to = "RBA-LGX-008"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-009"
+to = "RBA-LGX-009"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-010"
+to = "RBA-LGX-010"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-011"
+to = "RBA-LGX-011"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-012"
+to = "RBA-LGX-012"
+kind = "chain"
+
+[[edges]]
+from = "UC-LGX-013"
+to = "RBA-LGX-013"
+kind = "chain"
