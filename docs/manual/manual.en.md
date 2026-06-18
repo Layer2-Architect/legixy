@@ -58,19 +58,18 @@ semantic layer works out of the box.
 **Linux / macOS:**
 
 ```bash
-# Replace owner/legixy with the actual repository.
-curl -fsSL https://raw.githubusercontent.com/owner/legixy/main/install.sh | bash -s -- --repo owner/legixy
+curl -fsSL https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.sh | bash -s -- --repo Layer2-Architect/legixy
 # or, after cloning:
-bash install.sh --repo owner/legixy [--version vX.Y.Z] [--prefix ~/.local] [--no-model]
+bash install.sh --repo Layer2-Architect/legixy [--version vX.Y.Z] [--prefix ~/.local] [--no-model]
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
-$env:LEGIXY_REPO = "owner/legixy"
-irm https://raw.githubusercontent.com/owner/legixy/main/install.ps1 | iex
+$env:LEGIXY_REPO = "Layer2-Architect/legixy"
+irm https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.ps1 | iex
 # or, after cloning:
-powershell -ExecutionPolicy Bypass -File install.ps1 -Repo owner/legixy [-Version vX.Y.Z] [-NoModel]
+powershell -ExecutionPolicy Bypass -File install.ps1 -Repo Layer2-Architect/legixy [-Version vX.Y.Z] [-NoModel]
 ```
 
 The installer places legixy under a prefix (`~/.local/share/legixy`, or `%LOCALAPPDATA%\legixy`),
@@ -82,7 +81,7 @@ from source (§2.2).
 Requires a recent Rust toolchain (edition 2021) and, for the MCP server, Node.js ≥ 20.
 
 ```bash
-git clone https://github.com/owner/legixy
+git clone https://github.com/Layer2-Architect/legixy
 cd legixy
 
 # Formal layer only (no model, no ONNX):

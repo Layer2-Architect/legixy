@@ -17,7 +17,7 @@ members = [
 version = "0.4.0-alpha4"
 edition = "2021"
 license = "Apache-2.0"
-repository = "https://github.com/OWNER/legixy"
+repository = "https://github.com/Layer2-Architect/legixy"
 
 [workspace.dependencies]
 serde = { version = "1", features = ["derive"] }

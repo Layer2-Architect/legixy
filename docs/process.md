@@ -8,13 +8,13 @@ framework for operating an LLM as a software compiler from SPEC and use cases. S
 
 SCP is published as a **separate repository**; it is intentionally not vendored here:
 
-- **https://github.com/OWNER/spec-compiling-pipeline** — pin to a release tag (e.g. `v1.0.0`).
+- **https://github.com/Layer2-Architect/SPEC-compiling-pipeline** — pin to a release tag (e.g. `v1.0.0`).
 
 The process references in [`../CLAUDE.md`](../CLAUDE.md) and `.claude/` point into that
 repository's `ja/` tree (the Japanese edition is the source of truth; an English edition is in
 progress under `en/`).
 
-> When publishing, replace `OWNER` with the actual GitHub owner and pin to the SCP release you adopt.
+> Process links are pinned to the SCP release tag `v1.0.0`; change that tag if you adopt a different release.
 
 ## Note on historical references
 
@@ -32,11 +32,11 @@ legixy は **SPEC Compiling Pipeline (SCP)**（LLM を SPEC・ユースケース
 
 SCP は**別リポジトリ**で公開しており、本リポジトリには意図的に同梱しない:
 
-- **https://github.com/OWNER/spec-compiling-pipeline** — リリースタグ（例 `v1.0.0`）に固定して参照。
+- **https://github.com/Layer2-Architect/SPEC-compiling-pipeline** — リリースタグ（例 `v1.0.0`）に固定して参照。
 
 [`../CLAUDE.md`](../CLAUDE.md) や `.claude/` 内のプロセス参照は、そのリポジトリの `ja/` 配下（日本語版が
-正本。英語版は `en/` で進行中）を指す。公開時は `OWNER` を実際の GitHub オーナー名に置換し、採用する SCP
-リリースのタグに固定すること。
+正本。英語版は `en/` で進行中）を指す。プロセス参照は SCP リリースタグ `v1.0.0` に固定している（採用タグを
+変える場合は各リンクの `v1.0.0` を置換）。
 
 **歴史的注記**: legixy 自身の開発成果物（`docs/adr/`・`docs/gap-analysis/`・`docs/specs-supplement/` 等）に
 残る「DevProc_V4.1 / DevProc_V2」表記は SCP の旧称で、当時の記録としてそのまま保持している。

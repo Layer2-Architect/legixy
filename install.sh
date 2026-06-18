@@ -23,7 +23,7 @@
 set -euo pipefail
 
 # ---- defaults (edit REPO, or pass --repo / set LEGIXY_REPO) ----------------
-REPO="${LEGIXY_REPO:-OWNER/legixy}"
+REPO="${LEGIXY_REPO:-Layer2-Architect/legixy}"
 VERSION="${LEGIXY_VERSION:-latest}"
 PREFIX="${LEGIXY_PREFIX:-$HOME/.local}"
 WITH_MODEL=1
@@ -47,8 +47,6 @@ while [ $# -gt 0 ]; do
     *) err "unknown argument: $1 (try --help)";;
   esac
 done
-
-[ "$REPO" = "OWNER/legixy" ] && err "set the GitHub repo first: --repo OWNER/REPO or LEGIXY_REPO=owner/repo"
 
 # ---- platform detection -----------------------------------------------------
 os="$(uname -s)"; arch="$(uname -m)"

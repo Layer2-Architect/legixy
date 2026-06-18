@@ -1,5 +1,5 @@
 {
-  "_comment": "legixy / SCP（旧 DevProc）ローカル運用向け Claude Code settings。プロセス詳細は SCP リポジトリ ja/08-gates.md §17（https://github.com/OWNER/spec-compiling-pipeline）。",
+  "_comment": "legixy / SCP（旧 DevProc）ローカル運用向け Claude Code settings。プロセス詳細は SCP リポジトリ ja/08-gates.md §17（https://github.com/Layer2-Architect/SPEC-compiling-pipeline）。",
 
   "hooks": {
     "_comment_PreToolUse": "品質基準ファイルへの書き込みを deterministic に block する（review-guidelines/severity.md §3）。",

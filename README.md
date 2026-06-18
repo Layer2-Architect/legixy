@@ -38,7 +38,7 @@ The deep rationale (the "stochastic compiler" view, the empirical threat model, 
 ## Install
 
 Two ways: **prebuilt binaries** (recommended) or **build from source**. Full guide:
-**[docs/manual/manual.en.md](docs/manual/manual.en.md)**. (Replace `owner/legixy` with the real repo.)
+**[docs/manual/manual.en.md](docs/manual/manual.en.md)**.
 
 ### Prebuilt binaries (Linux / Windows, x86_64)
 
@@ -47,12 +47,12 @@ model, so the semantic layer works out of the box (use `--no-model` / `-NoModel`
 
 ```bash
 # Linux / macOS
-curl -fsSL https://raw.githubusercontent.com/owner/legixy/main/install.sh | bash -s -- --repo owner/legixy
+curl -fsSL https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.sh | bash -s -- --repo Layer2-Architect/legixy
 ```
 
 ```powershell
 # Windows (PowerShell)
-$env:LEGIXY_REPO="owner/legixy"; irm https://raw.githubusercontent.com/owner/legixy/main/install.ps1 | iex
+$env:LEGIXY_REPO="Layer2-Architect/legixy"; irm https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.ps1 | iex
 ```
 
 ### Build from source
@@ -60,7 +60,7 @@ $env:LEGIXY_REPO="owner/legixy"; irm https://raw.githubusercontent.com/owner/leg
 Requires a recent Rust toolchain (and Node.js ≥ 20 for the MCP server).
 
 ```bash
-git clone https://github.com/owner/legixy
+git clone https://github.com/Layer2-Architect/legixy
 cd legixy
 cargo build --release -p legixy-cli              # formal layer only
 cargo build --release -p legixy-cli --features onnx   # + semantic layer (links ONNX Runtime)
@@ -278,7 +278,7 @@ AI エージェントが文書を何ターンも編集すると、内容は **di
 ## インストール
 
 **ビルド済みバイナリ**（推奨）または**ソースからビルド**の 2 通り。詳細は
-**[docs/manual/manual.ja.md](docs/manual/manual.ja.md)**。（`owner/legixy` は実リポジトリ名に置換。）
+**[docs/manual/manual.ja.md](docs/manual/manual.ja.md)**。
 
 ### ビルド済みバイナリ（Linux / Windows・x86_64）
 
@@ -287,12 +287,12 @@ AI エージェントが文書を何ターンも編集すると、内容は **di
 
 ```bash
 # Linux / macOS
-curl -fsSL https://raw.githubusercontent.com/owner/legixy/main/install.sh | bash -s -- --repo owner/legixy
+curl -fsSL https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.sh | bash -s -- --repo Layer2-Architect/legixy
 ```
 
 ```powershell
 # Windows (PowerShell)
-$env:LEGIXY_REPO="owner/legixy"; irm https://raw.githubusercontent.com/owner/legixy/main/install.ps1 | iex
+$env:LEGIXY_REPO="Layer2-Architect/legixy"; irm https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.ps1 | iex
 ```
 
 ### ソースからビルド
@@ -300,7 +300,7 @@ $env:LEGIXY_REPO="owner/legixy"; irm https://raw.githubusercontent.com/owner/leg
 最近の Rust ツールチェーンが必要（MCP サーバーには Node.js ≥ 20 も）。
 
 ```bash
-git clone https://github.com/owner/legixy
+git clone https://github.com/Layer2-Architect/legixy
 cd legixy
 cargo build --release -p legixy-cli              # 形式層のみ
 cargo build --release -p legixy-cli --features onnx   # + 意味層（ONNX Runtime をリンク）

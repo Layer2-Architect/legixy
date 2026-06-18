@@ -18,10 +18,10 @@
 
 .EXAMPLE
   irm <raw-url>/install.ps1 | iex
-  powershell -ExecutionPolicy Bypass -File install.ps1 -Repo owner/legixy -Version v0.4.0
+  powershell -ExecutionPolicy Bypass -File install.ps1 -Repo Layer2-Architect/legixy -Version v0.4.0
 #>
 param(
-  [string]$Repo    = $(if ($env:LEGIXY_REPO)    { $env:LEGIXY_REPO }    else { "OWNER/legixy" }),
+  [string]$Repo    = $(if ($env:LEGIXY_REPO)    { $env:LEGIXY_REPO }    else { "Layer2-Architect/legixy" }),
   [string]$Version = $(if ($env:LEGIXY_VERSION) { $env:LEGIXY_VERSION } else { "latest" }),
   [string]$Prefix  = $(if ($env:LEGIXY_PREFIX)  { $env:LEGIXY_PREFIX }  else { Join-Path $env:LOCALAPPDATA "legixy" }),
   [switch]$NoModel
@@ -35,8 +35,6 @@ $HfRepo    = "sentence-transformers/$ModelName"
 
 function Info($m) { Write-Host "==> $m" -ForegroundColor Cyan }
 function Fail($m) { Write-Host "error: $m" -ForegroundColor Red; exit 1 }
-
-if ($Repo -eq "OWNER/legixy") { Fail "set the GitHub repo first: -Repo owner/repo (or `$env:LEGIXY_REPO)" }
 
 # ---- resolve release tag ----------------------------------------------------
 $api = "https://api.github.com/repos/$Repo/releases"

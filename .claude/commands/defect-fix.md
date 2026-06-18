@@ -4,7 +4,7 @@ description: 不具合修正イベント。SRC レベルでの不具合検出か
 argument-hint: <SRC-ID-or-symptom-description>
 ---
 
-不具合修正イベント (`defect-fix`) のフロー全体を起動する。`https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/10-modification-events.md` §4.1 の 10 ステップに従う。
+不具合修正イベント (`defect-fix`) のフロー全体を起動する。`https://github.com/Layer2-Architect/SPEC-compiling-pipeline/blob/v1.0.0/ja/10-modification-events.md` §4.1 の 10 ステップに従う。
 
 ## 引数
 
