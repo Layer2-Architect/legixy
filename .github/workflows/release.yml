@@ -3,10 +3,18 @@ name: release
 # Builds onnx-enabled legixy binaries for Linux and Windows and attaches them
 # to the GitHub Release for the pushed tag.
 #
-# NOTE (validate on first run): the highest-risk steps are (a) the `ort` crate
-# downloading the ONNX Runtime native library and (b) bundling that library next
-# to the binary so the archive is self-contained. If a build or a smoke run
-# fails, inspect the "locate ONNX Runtime" step output and adjust the search path.
+# Linux is built inside a manylinux_2_28 container (glibc 2.28) so a single
+# x86_64 binary runs across RHEL 8/9, Rocky/Alma, Ubuntu 20.04+, Debian, etc.
+# (glibc is only forward-compatible, so we build on an old baseline; 2.28 is also
+# the minimum glibc that GitHub's node20-based actions need). Windows uses the
+# native windows-latest runner (works on Windows 10/11).
+#
+# NOTE (validate on first run):
+#  - The `ort` crate downloads the ONNX Runtime native library; we bundle it next
+#    to the binary. If a build/smoke run fails, inspect "locate ONNX Runtime".
+#  - If the bundled libonnxruntime.so turns out to require glibc > 2.28, it will
+#    not load on RHEL 8 (glibc 2.28); then raise the manylinux baseline (e.g.
+#    manylinux_2_31) or document RHEL 9+ as the supported floor.
 
 on:
   push:
@@ -30,6 +38,7 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
+            container: quay.io/pypa/manylinux_2_28_x86_64
             target: x86_64-unknown-linux-gnu
             name: x86_64-linux
             archive: tar.gz
@@ -38,6 +47,8 @@ jobs:
             name: x86_64-windows
             archive: zip
     runs-on: ${{ matrix.os }}
+    # Linux runs inside the manylinux container; Windows has no container (empty = host).
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v4
 
@@ -57,9 +68,15 @@ jobs:
       - name: Cargo cache
         uses: Swatinem/rust-cache@v2
 
-      - name: Linux build deps
+      - name: Linux build deps (manylinux container)
         if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y pkg-config libssl-dev
+        shell: bash
+        run: |
+          # manylinux_2_28 is AlmaLinux 8 based (dnf/yum), not apt. openssl-devel
+          # is needed for ort's tls-native (the build-time ONNX Runtime download).
+          yum install -y openssl-devel pkgconfig perl-IPC-Cmd \
+            || dnf install -y openssl-devel pkgconfig perl-IPC-Cmd
+          git config --global --add safe.directory "$GITHUB_WORKSPACE" || true
 
       - name: Build legixy CLI (onnx feature)
         shell: bash
