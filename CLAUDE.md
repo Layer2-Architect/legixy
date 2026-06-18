@@ -1,12 +1,14 @@
 # CLAUDE.md (Author モード)
 
-このプロジェクト **legixy** は **品質偏向防止を第一目的とする AI コンパイラ運用フレームワーク**(DevProc_V4.1)を採用している。
+このプロジェクト **legixy** は **品質偏向防止を第一目的とする AI コンパイラ運用フレームワーク**(SCP)を採用している。
 
-**プロセスの詳細は `docs/DevProc_V4/README.md` を参照すること。** 本ファイルは AI が常時遵守すべき最低限の規律のみを記載する。
+> **開発プロセス（SCP）について**: legixy は **SPEC Compiling Pipeline (SCP)**（開発当時の名称は "DevProc"）に従って開発している。SCP は legixy とは**別の OSS リポジトリ**で公開されており、本ファイル中のプロセス文書リンクはそのリポジトリ（タグ `v1.0.0` の `ja/` 配下）を指す。**公開時に `OWNER` を実際の GitHub オーナー名へ、タグを採用する SCP リリースへ置換すること。** なお legixy 内の歴史的文書（`docs/adr/`・`docs/gap-analysis/`・`docs/specs-supplement/` 等）に残る「DevProc_V4.1 / DevProc_V2」表記は、いずれも SCP の旧称を指す（当時の記録としてそのまま保持）。
 
-> **モード分離**: このファイルは Author モード（生成・実装作業）向け。AI レビュアを起動する場合は `docs/DevProc_V4/bootstrap/CLAUDE-reviewer.md.template` を CLAUDE.md として配置する。両モードを 1 セッションで兼務しない（判定の独立性を守るため）。
+**プロセスの詳細は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/README.md` を参照すること。** 本ファイルは AI が常時遵守すべき最低限の規律のみを記載する。
 
-> **第一目的**: 確率論的変換器(AI)を SPEC, UC からのソフトウェアコンパイラとして採用する開発プロセスは、品質最大化ではなく **品質偏向防止** を第一目的とする(`docs/DevProc_V4/00-philosophy.md` §1)。Author は自身の出力に過信せず、Reviewer 層と AT に検証を委ねる前提で動く。
+> **モード分離**: このファイルは Author モード（生成・実装作業）向け。AI レビュアを起動する場合は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/bootstrap/CLAUDE-reviewer.md.template` を CLAUDE.md として配置する。両モードを 1 セッションで兼務しない（判定の独立性を守るため）。
+
+> **第一目的**: 確率論的変換器(AI)を SPEC, UC からのソフトウェアコンパイラとして採用する開発プロセスは、品質最大化ではなく **品質偏向防止** を第一目的とする(`https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/00-philosophy.md` §1)。Author は自身の出力に過信せず、Reviewer 層と AT に検証を委ねる前提で動く。
 
 ## プロジェクト概要
 
@@ -39,17 +41,17 @@ Raw SPEC → [前段ループ: QSET ⇄ SPP ⇄ FCR] → Accepted SPEC
 2. **GAP がクローズしないうちに次フェーズへ進まない。** GAP[SPEC] open のうちは UC 着手禁止。GAP[UC] open のうちは RBA 着手禁止。`bash scripts/trace-check.sh` がこれを機械検証する。
 3. **すべての成果物は親への参照を持つ。** chain 内成果物は `traceability-engine check --formal` で、chain 外成果物は本文 metadata + `scripts/trace-check.sh` で検証する。
 4. **新しい成果物タイプは `.trace-engine.toml` 更新が先。** チェーンに無いタイプを勝手に作らない。新タイプ追加時は (a) typecode を `.trace-engine.toml` に追加、(b) ID を `{type}-LGX-NNN` 形式で命名、(c) ファイル先頭に `Document ID:` 行を必置、(d) `docs/traceability/graph.toml` の `[[nodes]]` に登録。
-5. **AT は終端ではなく独立した検証チャネル。** 暗黙知・ドメイン慣行・前提の不一致専用（`docs/DevProc_V4/00-philosophy.md` §2.4）。
+5. **AT は終端ではなく独立した検証チャネル。** 暗黙知・ドメイン慣行・前提の不一致専用（`https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/00-philosophy.md` §2.4）。
 6. **仕様書とテストコードは実装着手後に変更しない。** 実装がテストに合わせる。ただし `/defect-fix`・`/spec-change` を経由する上流修正は対象外。
 7. **境界 API の契約は DD 段階で凍結する。** 凍結後の変更は次バージョンの SPEC 改訂として扱う。**legixy の場合、LGX-COMPAT-001 が規定する CLI/MCP 引数は既に凍結済みの境界契約とみなす。**
 8. **テストが通らない実装はマージしない。**
-9. **SPEC は前段ループで FCR.frontend_status = ACCEPTED に到達していなければ TP[SPEC] / UC 着手禁止。** `bash scripts/trace-check.sh` が機械検証する。スキップ時は ADR で記録（`docs/DevProc_V4/03a-frontend-pass.md` §11）。
-10. **ICONIX 二段化レイヤ汚染禁止 + 三者整合性検証必須。** 抽象側 RBA/SEQA にはドメイン語彙のみ、具体側 RBD/SEQD には操作名とクラス図表記まで。言語固有要素は DD でのみ。`scripts/trace-check.sh` の [5/5] が grep で検出。詳細は `docs/DevProc_V4/04-iconix-layer.md`。
-11. **人間関与は SPEC と UC に限定する。** RBA 以降は AI 自律実行 + AI Reviewer 層 + AT で品質保証する。例外: 境界 API 凍結対象リスト承認（ハードルール 7）。詳細は `docs/DevProc_V4/guides/ai-collaboration.md` §1。
+9. **SPEC は前段ループで FCR.frontend_status = ACCEPTED に到達していなければ TP[SPEC] / UC 着手禁止。** `bash scripts/trace-check.sh` が機械検証する。スキップ時は ADR で記録（`https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/03a-frontend-pass.md` §11）。
+10. **ICONIX 二段化レイヤ汚染禁止 + 三者整合性検証必須。** 抽象側 RBA/SEQA にはドメイン語彙のみ、具体側 RBD/SEQD には操作名とクラス図表記まで。言語固有要素は DD でのみ。`scripts/trace-check.sh` の [5/5] が grep で検出。詳細は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/04-iconix-layer.md`。
+11. **人間関与は SPEC と UC に限定する。** RBA 以降は AI 自律実行 + AI Reviewer 層 + AT で品質保証する。例外: 境界 API 凍結対象リスト承認（ハードルール 7）。詳細は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/guides/ai-collaboration.md` §1。
 
 ## 新規 SPEC 受け取り時の起動条件
 
-新規 SPEC を受け取ったら、最初にするのは**前段ループの起動**（QSET 発行）。TP[SPEC] や UC の生成に直接着手してはならない。手順は `docs/DevProc_V4/03a-frontend-pass.md` を参照。
+新規 SPEC を受け取ったら、最初にするのは**前段ループの起動**（QSET 発行）。TP[SPEC] や UC の生成に直接着手してはならない。手順は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/03a-frontend-pass.md` を参照。
 
 ## 出力規律
 
@@ -73,7 +75,7 @@ bash scripts/trace-check.sh
 
 第 2 層（semantic、ONNX 必須）は `models/paraphrase-multilingual-MiniLM-L12-v2/` 配置 + `.trace-engine.toml` の `[semantic] enabled = true` 後に `traceability-engine check`。
 
-詳細は `docs/DevProc_V4/06-trace-engine.md`、`docs/DevProc_V4/manual/traceability-engine.v3/manual.md`。
+詳細は `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/06-trace-engine.md`、`https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/manual/legixy/manual.md`。
 
 ## プロジェクト固有の補足
 
@@ -91,18 +93,18 @@ bash scripts/trace-check.sh
 
 | 作業内容 | 参照先 |
 |---|---|
-| プロセス全体像 | `docs/DevProc_V4/01-overview.md` |
-| 成果物タイプと ID | `docs/DevProc_V4/02-typecodes.md` |
-| **前段ループ（Raw SPEC → Accepted SPEC）** | `docs/DevProc_V4/03a-frontend-pass.md` |
-| SPEC, UC, TP, GAP の作業 | `docs/DevProc_V4/03-spec-level-tdd.md` |
-| **RBA/SEQA/RBD/SEQD/DD の作業（ICONIX 二段化）** | `docs/DevProc_V4/04-iconix-layer.md` |
-| TS, TC, SRC の作業 | `docs/DevProc_V4/05-test-and-impl.md` |
-| traceability-engine 操作 | `docs/DevProc_V4/06-trace-engine.md` |
-| AT, NFR の作業 | `docs/DevProc_V4/07-at-and-nfr.md` |
-| ゲート判定 | `docs/DevProc_V4/08-gates.md` |
-| **AI レビュア層の運用** | `docs/DevProc_V4/review-guidelines/README.md` |
-| **Reviewer モード CLAUDE.md** | `docs/DevProc_V4/bootstrap/CLAUDE-reviewer.md.template` |
-| 各成果物の雛形 | `docs/DevProc_V4/templates/` |
+| プロセス全体像 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/01-overview.md` |
+| 成果物タイプと ID | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/02-typecodes.md` |
+| **前段ループ（Raw SPEC → Accepted SPEC）** | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/03a-frontend-pass.md` |
+| SPEC, UC, TP, GAP の作業 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/03-spec-level-tdd.md` |
+| **RBA/SEQA/RBD/SEQD/DD の作業（ICONIX 二段化）** | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/04-iconix-layer.md` |
+| TS, TC, SRC の作業 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/05-test-and-impl.md` |
+| traceability-engine 操作 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/06-trace-engine.md` |
+| AT, NFR の作業 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/07-at-and-nfr.md` |
+| ゲート判定 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/08-gates.md` |
+| **AI レビュア層の運用** | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/review-guidelines/README.md` |
+| **Reviewer モード CLAUDE.md** | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/bootstrap/CLAUDE-reviewer.md.template` |
+| 各成果物の雛形 | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/templates/` |
 | 観点ナレッジベース | `docs/perspectives/` |
-| 言語別ガイド | `docs/DevProc_V4/guides/language-stacks/rust.md`, `.../typescript.md` |
+| 言語別ガイド | `https://github.com/OWNER/spec-compiling-pipeline/blob/v1.0.0/ja/guides/language-stacks/rust.md`, `.../typescript.md` |
 | legixy CLI/MCP 互換契約 | `docs/legixy_cli_compat_reference.md` |

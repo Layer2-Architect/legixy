@@ -1,5 +1,5 @@
 {
-  "_comment": "legixy / DevProc_V4.1 ローカル運用向け Claude Code settings。詳細は docs/DevProc_V4/08-gates.md §17。",
+  "_comment": "legixy / SCP（旧 DevProc）ローカル運用向け Claude Code settings。プロセス詳細は SCP リポジトリ ja/08-gates.md §17（https://github.com/OWNER/spec-compiling-pipeline）。",
 
   "hooks": {
     "_comment_PreToolUse": "品質基準ファイルへの書き込みを deterministic に block する（review-guidelines/severity.md §3）。",
@@ -57,7 +57,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "grep -A 50 '## ハードルール' docs/DevProc_V4/README.md | head -60 || true"
+            "command": "grep -A 50 '## ハードルール' CLAUDE.md | head -60 || true"
           }
         ]
       }
