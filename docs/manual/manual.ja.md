@@ -211,7 +211,7 @@ method = "mtime"
 
 | 層 | コマンド | カテゴリ | モデル |
 |---|---|---|---|
-| **形式層**（決定論） | `legixy check --formal` | ID 形式・ファイル存在・連鎖整合性・循環なし(DAG)・孤児ファイル・サブノード ID 形式 | 不要 |
+| **形式層**（決定論） | `legixy check --formal` | ID 形式・ファイル存在・連鎖整合性・鮮度(mtime)・循環なし(DAG)・孤児ファイル・サブノード ID 形式 ほか（代表例。`check --formal` はサブノード一意性/親/DAG・ID 再定義・未解決エッジ等も発行する） | 不要 |
 | **意味層**（埋め込み） | `legixy check` | SemanticSimilarity（リンク間が閾値未満→Warning）・LinkCandidate（非リンクが閾値超過→Info）・Drift（content_hash 不一致→Warning） | 要 |
 
 `check` の終了コード: **Error 件数 > 0 → 1、それ以外 0**（G1 ゲート）。意味層の所見は Warning/Info で、

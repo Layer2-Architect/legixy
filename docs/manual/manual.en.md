@@ -214,7 +214,7 @@ method = "mtime"
 
 | Layer | Command | Categories | Needs model |
 |---|---|---|---|
-| **Formal** (deterministic) | `legixy check --formal` | ID format, file existence, chain integrity, acyclicity (DAG), orphan files, subnode ID format | No |
+| **Formal** (deterministic) | `legixy check --formal` | ID format, file existence, chain integrity, freshness (mtime), acyclicity (DAG), orphan files, subnode ID format, … (representative; `check --formal` emits more categories — subnode uniqueness/parent/DAG, id-redefined, unresolved-edge, etc.) | No |
 | **Semantic** (embedding) | `legixy check` | SemanticSimilarity (linked pair below threshold → Warning), LinkCandidate (unlinked pair above threshold → Info), Drift (content_hash mismatch → Warning) | Yes |
 
 `check` exit code: **Error count > 0 → 1, otherwise 0** (the G1 gate). Semantic findings are
