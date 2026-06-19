@@ -92,15 +92,19 @@ if (-not $NoModel) {
   $base = "https://huggingface.co/$HfRepo/resolve/main"
   New-Item -ItemType Directory -Force -Path $dest | Out-Null
   Info "fetching embedding model: $HfRepo (~500 MB)"
-  if (-not (Test-Path (Join-Path $dest "tokenizer.json"))) {
-    Invoke-WebRequest -Uri "$base/tokenizer.json" -OutFile (Join-Path $dest "tokenizer.json") -UseBasicParsing
+  # Windows 11 ships curl.exe, which supports resume (-C -) + retry — far more robust
+  # than Invoke-WebRequest for the ~450 MB model.onnx (a single GET often gets reset).
+  # NB: in PowerShell `curl` is an alias for Invoke-WebRequest, so call curl.exe explicitly.
+  $tok  = Join-Path $dest "tokenizer.json"
+  $onnx = Join-Path $dest "model.onnx"
+  if (-not (Test-Path $tok)) {
+    & curl.exe -fL -C - --retry 5 --retry-delay 2 --retry-all-errors "$base/tokenizer.json" -o "$tok"
+    if ($LASTEXITCODE -ne 0) { Fail "failed to fetch tokenizer.json" }
   }
-  if (-not (Test-Path (Join-Path $dest "model.onnx"))) {
-    try {
-      Invoke-WebRequest -Uri "$base/onnx/model.onnx" -OutFile (Join-Path $dest "model.onnx") -UseBasicParsing
-    } catch {
-      Remove-Item (Join-Path $dest "model.onnx") -ErrorAction SilentlyContinue
-      Fail "failed to fetch onnx/model.onnx. Export it with optimum (see docs/manual)."
+  if (-not (Test-Path $onnx)) {
+    & curl.exe -fL -C - --retry 5 --retry-delay 2 --retry-all-errors "$base/onnx/model.onnx" -o "$onnx"
+    if ($LASTEXITCODE -ne 0) {
+      Fail "failed to fetch onnx/model.onnx (the partial download is kept — re-run install.ps1 to resume). Or export it with optimum (see docs/manual)."
     }
   }
   # The Windows binary resolves the model via LGX_MODELS_DIR (no shell wrapper).

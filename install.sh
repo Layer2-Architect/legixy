@@ -100,13 +100,14 @@ if [ "$WITH_MODEL" -eq 1 ]; then
   base="https://huggingface.co/${HF_REPO}/resolve/main"
   mkdir -p "$dest"
   info "fetching embedding model: ${HF_REPO} (~500 MB)"
-  [ -f "$dest/tokenizer.json" ] || curl -fL "${base}/tokenizer.json" -o "$dest/tokenizer.json" \
-    || err "failed to fetch tokenizer.json"
+  # -C - (resume) + --retry handle flaky/large transfers; the ~450 MB model.onnx
+  # is where a single curl often gets "Connection reset by peer" on real networks.
+  [ -f "$dest/tokenizer.json" ] || curl -fL -C - --retry 5 --retry-delay 2 --retry-all-errors \
+    "${base}/tokenizer.json" -o "$dest/tokenizer.json" || err "failed to fetch tokenizer.json"
   if [ ! -f "$dest/model.onnx" ]; then
-    curl -fL "${base}/onnx/model.onnx" -o "$dest/model.onnx" || {
-      rm -f "$dest/model.onnx"
-      err "failed to fetch onnx/model.onnx. Export it with: pip install optimum[onnxruntime] && optimum-cli export onnx -m ${HF_REPO} --task feature-extraction \"$dest\""
-    }
+    curl -fL -C - --retry 5 --retry-delay 2 --retry-all-errors \
+      "${base}/onnx/model.onnx" -o "$dest/model.onnx" || \
+      err "failed to fetch onnx/model.onnx (the partial download is kept — just re-run install.sh to resume). Or export it: pip install optimum[onnxruntime] && optimum-cli export onnx -m ${HF_REPO} --task feature-extraction \"$dest\""
   fi
   info "model installed at ${dest}"
 else

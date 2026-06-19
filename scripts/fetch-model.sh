@@ -29,13 +29,14 @@ echo "ONNX モデルを取得します: ${REPO}"
 # tokenizer.json（リポジトリ直下）
 if [[ ! -f "$DEST/tokenizer.json" ]]; then
   echo "  - tokenizer.json"
-  curl -fL "${BASE}/tokenizer.json" -o "$DEST/tokenizer.json"
+  curl -fL -C - --retry 5 --retry-delay 2 --retry-all-errors "${BASE}/tokenizer.json" -o "$DEST/tokenizer.json"
 fi
 
 # model.onnx（onnx/ サブフォルダに配置されている。無い場合は optimum で書き出す必要あり）
+# -C -（レジューム）+ --retry: ~450MB の大容量取得は接続リセットしやすいので再開・再試行する。
 if [[ ! -f "$DEST/model.onnx" ]]; then
   echo "  - model.onnx（onnx/model.onnx を試行）"
-  if ! curl -fL "${BASE}/onnx/model.onnx" -o "$DEST/model.onnx"; then
+  if ! curl -fL -C - --retry 5 --retry-delay 2 --retry-all-errors "${BASE}/onnx/model.onnx" -o "$DEST/model.onnx"; then
     echo ""
     echo "  onnx/model.onnx が見つかりません。optimum で ONNX を書き出してください:" >&2
     echo "    pip install optimum[onnxruntime] sentence-transformers" >&2
