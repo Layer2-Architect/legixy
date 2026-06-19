@@ -45,6 +45,10 @@ Two ways: **prebuilt binaries** (recommended) or **build from source**. Full gui
 Each GitHub Release attaches onnx-enabled binaries. The install scripts also download the embedding
 model, so the semantic layer works out of the box (use `--no-model` / `-NoModel` to skip it).
 
+> **Linux glibc requirement**: the prebuilt Linux binary links a recent ONNX Runtime and needs
+> **glibc ≥ 2.39** (Ubuntu 24.04+, Fedora 39+, RHEL 10+). On older distros (RHEL 8/9, Ubuntu ≤ 22.04)
+> build from source instead. Windows 10/11 is fine.
+
 ```bash
 # Linux / macOS
 curl -fsSL https://raw.githubusercontent.com/Layer2-Architect/legixy/main/install.sh | bash -s -- --repo Layer2-Architect/legixy
@@ -284,6 +288,10 @@ AI エージェントが文書を何ターンも編集すると、内容は **di
 
 各 GitHub Release に onnx 有効バイナリが添付される。install スクリプトは埋め込みモデルも取得するため、
 意味層がそのまま動く（`--no-model` / `-NoModel` で省略可）。
+
+> **Linux の glibc 要件**: ビルド済み Linux バイナリは新しめの ONNX Runtime をリンクするため
+> **glibc ≥ 2.39**（Ubuntu 24.04+ / Fedora 39+ / RHEL 10+）が必要。古い distro（RHEL 8/9・Ubuntu 22.04 以前）
+> ではソースからビルドしてください。Windows 10/11 は問題なし。
 
 ```bash
 # Linux / macOS

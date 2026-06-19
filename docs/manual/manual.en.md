@@ -55,6 +55,10 @@ Prebuilt, onnx-enabled binaries for **Linux (x86_64)** and **Windows (x86_64)** 
 GitHub Release. The install scripts download the binary **and** the embedding model (see §3), so the
 semantic layer works out of the box.
 
+> **Linux glibc requirement**: the prebuilt Linux binary links a recent ONNX Runtime and requires
+> **glibc ≥ 2.39** (Ubuntu 24.04+, Fedora 39+, RHEL 10+). On older distros (RHEL 8/9, Ubuntu ≤ 22.04),
+> build from source (§2.2). Windows 10/11 needs no such consideration.
+
 **Linux / macOS:**
 
 ```bash
