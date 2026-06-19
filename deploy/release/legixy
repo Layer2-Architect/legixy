@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Release launcher (Linux). Makes the bundled ONNX Runtime loadable and
-# auto-points LGX_MODELS_DIR at the bundled model if present.
-HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Release launcher (Linux). Resolves its own real location (works when invoked
+# via a PATH symlink), and auto-points LGX_MODELS_DIR at the bundled model.
+HERE="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
 export LD_LIBRARY_PATH="$HERE/bin${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 MODEL="$HERE/models/paraphrase-multilingual-MiniLM-L12-v2"
 if [ -f "$MODEL/model.onnx" ] && [ -z "${LGX_MODELS_DIR:-}" ]; then
