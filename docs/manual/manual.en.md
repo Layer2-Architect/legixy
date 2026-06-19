@@ -361,7 +361,9 @@ Or run the server directly, pointing `LGX_BIN` at the binary:
 - **MCP server can't find the binary** — set `LGX_BIN` to the absolute path of `legixy`, or use the
   `legixy-mcp` launcher.
 - **Semantic findings look noisy** — thresholds are not universal constants. Run `legixy calibrate
-  --recommend` against your project's real distribution.
+  --recommend` against your project's real distribution. For a reproducible protocol that measures the
+  instrument's response to meaning-preserving vs meaning-destroying edits, see
+  [`CALIBRATION.md`](../../CALIBRATION.md).
 
 ---
 

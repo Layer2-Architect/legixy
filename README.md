@@ -215,7 +215,7 @@ implementation back to its spec.
 
 - **Does not judge correctness.** Detection of deviation only; whether it is a problem is out of scope.
 - **Does not auto-update the graph.** File add/remove/rename is followed by manual `graph.toml` edits; `check` detects drift after the fact.
-- **The semantic layer is an instrument, not a judge.** Thresholds are project-specific baselines; do not take severity at face value before calibrating. Confidence is asymmetric: the **formal layer is validated in practice; the semantic layer's response characteristics are still n=1** — independent validation is welcome (see the articles).
+- **The semantic layer is an instrument, not a judge.** Thresholds are project-specific baselines; do not take severity at face value before calibrating. Confidence is asymmetric: the **formal layer is validated in practice; the semantic layer's response characteristics are still n=1** — independent validation is welcome (see the articles, and **[CALIBRATION.md](CALIBRATION.md)** for a reproducible measurement protocol).
 - **Overkill for small, short-lived projects.** Declaring and maintaining the graph has a cost that pays off only for long-lived, large, or high-stakes work.
 - legixy is **one block** of a larger process (machine verification + measurement), not a whole methodology.
 
@@ -462,7 +462,7 @@ independent = ["EPIC", "PERSONA"]
 - **正しさを判定しない。** 逸脱の検出までで、それが問題かは答えない。
 - **グラフを自動更新しない。** ファイルの追加・削除・リネームは `graph.toml` の手動編集で追従し、`check` が事後検出する。
 - **意味層は計器であって審判ではない。** 閾値はプロジェクト固有のベースライン。校正前に severity を真に受けない。
-  確信は非対称 ― **形式層は実地で有効を確認済み、意味層の応答特性はまだ n=1**。独立検証を歓迎する（記事参照）。
+  確信は非対称 ― **形式層は実地で有効を確認済み、意味層の応答特性はまだ n=1**。独立検証を歓迎する（記事と、再現可能な計測手順は **[CALIBRATION.md](CALIBRATION.md)** を参照）。
 - **小規模・短命なプロジェクトには過剰装備。** グラフの宣言・維持にはコストがあり、長期・大規模・破局コストの大きい領域で初めてペイする。
 - legixy はより大きなプロセスの**一ブロック**（機械検証 + 計測）であって、方法論の全体ではない。
 
