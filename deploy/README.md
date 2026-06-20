@@ -35,7 +35,7 @@ deploy/
 ├── legixy-mcp         # MCP サーバ起動ラッパ（LGX_BIN を同梱 legixy に設定して ts-mcp を起動）
 ├── bin/legixy         # release バイナリ（生成物）
 ├── ts-mcp/            # MCP サーバ（dist + 本番依存）（生成物）
-├── config/            # .trace-engine.toml サンプル（生成物）
+├── config/            # .legixy.toml サンプル（生成物）
 ├── models/            # ONNX モデル配置先の案内（embed/意味層用）
 └── README.md
 ```

@@ -37,8 +37,8 @@ cp "$ROOT/ts-mcp/package.json" "$ROOT/ts-mcp/package-lock.json" "$DEPLOY/ts-mcp/
 ( cd "$DEPLOY/ts-mcp" && npm ci --omit=dev )
 
 # サンプル設定
-if [ -f "$ROOT/.trace-engine.toml" ]; then
-  cp "$ROOT/.trace-engine.toml" "$DEPLOY/config/.trace-engine.toml"
+if [ -f "$ROOT/.legixy.toml" ]; then
+  cp "$ROOT/.legixy.toml" "$DEPLOY/config/.legixy.toml"
 fi
 
 # ONNX モデル（日本語対応 = 多言語 paraphrase-multilingual-MiniLM-L12-v2、384 次元 mean pooling）。

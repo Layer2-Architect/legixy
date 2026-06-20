@@ -10,7 +10,7 @@
 #   models/paraphrase-multilingual-MiniLM-L12-v2/model.onnx
 #   models/paraphrase-multilingual-MiniLM-L12-v2/tokenizer.json
 #
-# 取得後、.trace-engine.toml の [semantic] enabled = true にすると第 2 層が有効化される。
+# 取得後、.legixy.toml の [semantic] enabled = true にすると第 2 層が有効化される。
 #
 # Usage: bash scripts/fetch-model.sh
 
@@ -50,6 +50,6 @@ echo "完了: $DEST"
 ls -la "$DEST"
 echo ""
 echo "次のステップ:"
-echo "  1. .trace-engine.toml の [semantic] enabled = true に変更"
+echo "  1. .legixy.toml の [semantic] enabled = true に変更"
 echo "  2. traceability-engine --project-root . embed --all"
 echo "  3. traceability-engine --project-root . check   （第 1 層 + 第 2 層 semantic）"

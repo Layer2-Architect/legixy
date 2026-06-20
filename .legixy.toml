@@ -1,8 +1,8 @@
-# .trace-engine.toml — legixy プロジェクト（DevProc_V4.1 採用）
+# .legixy.toml — legixy プロジェクト設定（正準名。SPEC-LGX-008.REQ.13 / LGX-COMPAT-001 §6）。
 #
-# 開発ツールとして実バイナリ `traceability-engine`（v0.4.0-alpha4）を使用する。
-# そのため設定ファイル名は実バイナリが読む `.trace-engine.toml` とする。
-# （legixy-the-tool が将来既定とする `.legixy.toml` は別レイヤ。LGX-COMPAT-001 §6 / SPEC-LGX-008.REQ.13 参照）
+# 設定ファイルは `.legixy.toml` を正準とし、旧名 `.trace-engine.toml` も後方互換で読む
+# （探索順 `.legixy.toml` → `.trace-engine.toml`、`init` は常に `.legixy.toml` を生成）。
+# 実バイナリは legixy（v0.4.0-alpha4。配布によっては旧名 `traceability-engine` の場合あり）。
 
 [project]
 name = "legixy"

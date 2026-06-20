@@ -72,7 +72,7 @@ tools: Read, Grep, Glob, Bash
 - ICONIX 抽象層（RBA → SEQA、Adversary 役の対象）
 - DD の API 凍結内容
 - リリースゲート（AT 通過）
-- 品質基準変更（`review-guidelines/` / `bootstrap/CLAUDE*.md.template` / `.trace-engine.toml` / `scripts/trace-check.sh` 等）
+- 品質基準変更（`review-guidelines/` / `bootstrap/CLAUDE*.md.template` / `.legixy.toml` / `scripts/trace-check.sh` 等）
 
 ## 降格禁止ルール
 
